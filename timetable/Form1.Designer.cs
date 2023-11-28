@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             daycontainer = new FlowLayoutPanel();
-            button1 = new Button();
-            button2 = new Button();
+            btnprevious_Click = new Button();
+            btnnext_Click = new Button();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -38,108 +38,128 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            lbmonth = new Label();
             SuspendLayout();
             // 
             // daycontainer
             // 
-            daycontainer.Location = new Point(12, 146);
+            daycontainer.Location = new Point(12, 248);
             daycontainer.Name = "daycontainer";
-            daycontainer.Size = new Size(1538, 804);
+            daycontainer.Size = new Size(1538, 596);
             daycontainer.TabIndex = 0;
             // 
-            // button1
+            // btnprevious_Click
             // 
-            button1.Location = new Point(1240, 960);
-            button1.Name = "button1";
-            button1.Size = new Size(150, 50);
-            button1.TabIndex = 1;
-            button1.Text = "Trước";
-            button1.UseVisualStyleBackColor = true;
+            btnprevious_Click.Location = new Point(1241, 861);
+            btnprevious_Click.Name = "btnprevious_Click";
+            btnprevious_Click.Size = new Size(150, 50);
+            btnprevious_Click.TabIndex = 1;
+            btnprevious_Click.Text = "Previous";
+            btnprevious_Click.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnnext_Click
             // 
-            button2.Location = new Point(1400, 960);
-            button2.Name = "button2";
-            button2.Size = new Size(150, 50);
-            button2.TabIndex = 2;
-            button2.Text = "Sau";
-            button2.UseVisualStyleBackColor = true;
+            btnnext_Click.Location = new Point(1401, 861);
+            btnnext_Click.Name = "btnnext_Click";
+            btnnext_Click.Size = new Size(150, 50);
+            btnnext_Click.TabIndex = 2;
+            btnnext_Click.Text = "Next";
+            btnnext_Click.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Arial", 13.875F, FontStyle.Bold);
-            label7.Location = new Point(1342, 94);
+            label7.Font = new Font("Arial", 12F, FontStyle.Bold);
+            label7.Location = new Point(1386, 185);
             label7.Name = "label7";
-            label7.Size = new Size(185, 44);
+            label7.Size = new Size(130, 37);
             label7.TabIndex = 13;
-            label7.Text = "Chủ Nhật";
+            label7.Text = "Sunday";
+            label7.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Arial", 13.875F, FontStyle.Bold);
-            label6.Location = new Point(1133, 94);
+            label6.Font = new Font("Arial", 12F, FontStyle.Bold);
+            label6.Location = new Point(1155, 185);
             label6.Name = "label6";
-            label6.Size = new Size(170, 44);
+            label6.Size = new Size(153, 37);
             label6.TabIndex = 12;
-            label6.Text = "Thứ Bảy";
+            label6.Text = "Saturday";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Arial", 13.875F, FontStyle.Bold);
-            label5.Location = new Point(911, 94);
+            label5.Font = new Font("Arial", 12F, FontStyle.Bold);
+            label5.Location = new Point(969, 185);
             label5.Name = "label5";
-            label5.Size = new Size(171, 44);
+            label5.Size = new Size(114, 37);
             label5.TabIndex = 11;
-            label5.Text = "Thứ Sáu";
+            label5.Text = "Friday";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Arial", 13.875F, FontStyle.Bold);
-            label4.Location = new Point(687, 94);
+            label4.Font = new Font("Arial", 12F, FontStyle.Bold);
+            label4.Location = new Point(717, 185);
             label4.Name = "label4";
-            label4.Size = new Size(183, 44);
+            label4.Size = new Size(160, 37);
             label4.TabIndex = 10;
-            label4.Text = "Thứ Năm";
+            label4.Text = "Thursday";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Arial", 13.875F, FontStyle.Bold);
-            label3.Location = new Point(486, 94);
+            label3.Font = new Font("Arial", 12F, FontStyle.Bold);
+            label3.Location = new Point(463, 185);
             label3.Name = "label3";
-            label3.Size = new Size(152, 44);
+            label3.Size = new Size(193, 37);
             label3.TabIndex = 9;
-            label3.Text = "Thứ Tư";
+            label3.Text = "Wednesday";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Arial", 13.875F, FontStyle.Bold);
-            label2.Location = new Point(266, 94);
+            label2.Font = new Font("Arial", 12F, FontStyle.Bold);
+            label2.Location = new Point(266, 185);
             label2.Name = "label2";
-            label2.Size = new Size(150, 44);
+            label2.Size = new Size(144, 37);
             label2.TabIndex = 8;
-            label2.Text = "Thứ Ba";
+            label2.Text = "Tuesday";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial", 13.875F, FontStyle.Bold);
-            label1.Location = new Point(42, 94);
+            label1.Font = new Font("Arial", 12F, FontStyle.Bold);
+            label1.Location = new Point(58, 185);
             label1.Name = "label1";
-            label1.Size = new Size(160, 44);
+            label1.Size = new Size(136, 37);
             label1.TabIndex = 7;
-            label1.Text = "Thứ Hai";
+            label1.Text = "Monday";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lbmonth
+            // 
+            lbmonth.AutoSize = true;
+            lbmonth.Font = new Font("Arial", 22.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbmonth.Location = new Point(571, 55);
+            lbmonth.Name = "lbmonth";
+            lbmonth.Size = new Size(210, 69);
+            lbmonth.TabIndex = 14;
+            lbmonth.Text = "month";
+            lbmonth.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1562, 1023);
+            ClientSize = new Size(1562, 933);
+            Controls.Add(lbmonth);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -147,8 +167,8 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnnext_Click);
+            Controls.Add(btnprevious_Click);
             Controls.Add(daycontainer);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
@@ -162,8 +182,8 @@
         #endregion
 
         private FlowLayoutPanel daycontainer;
-        private Button button1;
-        private Button button2;
+        private Button btnprevious_Click;
+        private Button btnnext_Click;
         private Label label7;
         private Label label6;
         private Label label5;
@@ -171,5 +191,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private Label lbmonth;
     }
 }

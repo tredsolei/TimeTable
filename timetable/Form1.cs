@@ -20,6 +20,10 @@ namespace timetable
         private void displayDays()
         {
             DateTime now = DateTime.Now;
+            month = now.Month;
+            year = now.Year;
+            String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
+            lbmonth.Text = monthname + " " + year;
 
             DateTime startofthemonth = new DateTime(now.Year, now.Month, 1); 
             int days = DateTime.DaysInMonth(now.Year, now.Month); 
@@ -40,5 +44,6 @@ namespace timetable
                 daycontainer.Controls.Add(ucdays);
             }
         }
+
     }
 }
