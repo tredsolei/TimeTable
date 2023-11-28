@@ -40,6 +40,7 @@
             lbdays.Size = new Size(47, 33);
             lbdays.TabIndex = 0;
             lbdays.Text = "00";
+            lbdays.TextAlign = ContentAlignment.TopRight;
             // 
             // UserControlDays
             // 
