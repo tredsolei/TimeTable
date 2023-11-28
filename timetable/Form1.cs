@@ -20,7 +20,7 @@ namespace timetable
 
         private void displayDays()
         {
-            DateTime now = DateTime.Now;
+            DateTime now = DateTime.UtcNow;
             month = now.Month;
             year = now.Year;
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
@@ -29,6 +29,10 @@ namespace timetable
             DateTime startofthemonth = new DateTime(now.Year, now.Month, 1);
             int days = DateTime.DaysInMonth(now.Year, now.Month);
             int dayoftheweek = Convert.ToInt32(startofthemonth.DayOfWeek.ToString("d"));
+            if (dayoftheweek == 0)
+            {
+                dayoftheweek = 7;
+            }
 
             // User control trống
             for (int i = 1; i < dayoftheweek; i++)
@@ -65,6 +69,10 @@ namespace timetable
             DateTime startofthemonth = new DateTime(year, month, 1);
             int days = DateTime.DaysInMonth(year, month);
             int dayoftheweek = Convert.ToInt32(startofthemonth.DayOfWeek.ToString("d"));
+            if (dayoftheweek == 0)
+            {
+                dayoftheweek = 7;
+            }
 
             lbmonth.Text = DateTimeFormatInfo.CurrentInfo.GetMonthName(month) + " " + year;
 
@@ -96,6 +104,10 @@ namespace timetable
             DateTime startofthemonth = new DateTime(year, month, 1);
             int days = DateTime.DaysInMonth(year, month);
             int dayoftheweek = Convert.ToInt32(startofthemonth.DayOfWeek.ToString("d"));
+            if (dayoftheweek == 0)
+            {
+                dayoftheweek = 7;
+            }
 
             lbmonth.Text = DateTimeFormatInfo.CurrentInfo.GetMonthName(month) + " " + year;
 
