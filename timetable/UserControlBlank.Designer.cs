@@ -43,6 +43,5 @@
 
         #endregion
 
-        private Label label1;
     }
 }
