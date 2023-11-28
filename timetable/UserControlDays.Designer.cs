@@ -35,23 +35,21 @@
             // 
             lbdays.AutoSize = true;
             lbdays.Font = new Font("Arial", 10.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbdays.Location = new Point(91, 10);
-            lbdays.Margin = new Padding(2, 0, 2, 0);
+            lbdays.Location = new Point(152, 15);
             lbdays.Name = "lbdays";
-            lbdays.Size = new Size(32, 22);
+            lbdays.Size = new Size(47, 33);
             lbdays.TabIndex = 0;
             lbdays.Text = "00";
             lbdays.TextAlign = ContentAlignment.TopRight;
             // 
             // UserControlDays
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.HighlightText;
+            BackColor = SystemColors.GradientInactiveCaption;
             Controls.Add(lbdays);
-            Margin = new Padding(2);
             Name = "UserControlDays";
-            Size = new Size(131, 80);
+            Size = new Size(213, 128);
             ResumeLayout(false);
             PerformLayout();
         }
