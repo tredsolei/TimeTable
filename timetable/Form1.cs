@@ -12,7 +12,7 @@ namespace timetable
             InitializeComponent();
         }
 
-        int month, year;
+        int day, month, year;
 
         public static int static_month, static_year;
 
@@ -28,6 +28,7 @@ namespace timetable
             DateTime now = DateTime.UtcNow;
             month = now.Month;
             year = now.Year;
+            day = now.Day;
 
             // Lấy tên của tháng hiện tại
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
@@ -35,6 +36,8 @@ namespace timetable
             // Hiển thị tháng và năm hiện tại trong label
             lbmonth.Text = monthname + " " + year;
 
+            // Hiển thị thứ ngày tháng năm hiện tại với đuôi
+            lbtoday.Text = $"Today: {now.ToString("dddd, dd")}{GetDaySuffix(now.Day)} {now.ToString("MMMM, yyyy", CultureInfo.InvariantCulture)}";
             static_month = month;
             static_year = year;
 
@@ -66,6 +69,28 @@ namespace timetable
                 daycontainer.Controls.Add(ucdays);
             }
         }
+
+        // Phương thức để xác định đuôi cho số ngày
+        private string GetDaySuffix(int day)
+        {
+            if (day >= 11 && day <= 13)
+            {
+                return "th";
+            }
+
+            switch (day % 10)
+            {
+                case 1:
+                    return "st";
+                case 2:
+                    return "nd";
+                case 3:
+                    return "rd";
+                default:
+                    return "th";
+            }
+        }
+
 
         private void btntoday_CLick(object sender, EventArgs e)
         {

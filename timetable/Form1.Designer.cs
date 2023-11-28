@@ -40,6 +40,7 @@
             label1 = new Label();
             lbmonth = new Label();
             btntoday = new Button();
+            lbtoday = new Label();
             SuspendLayout();
             // 
             // daycontainer
@@ -73,7 +74,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label7.Location = new Point(1413, 154);
+            label7.Location = new Point(1389, 154);
             label7.Name = "label7";
             label7.Size = new Size(130, 37);
             label7.TabIndex = 13;
@@ -84,7 +85,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label6.Location = new Point(1180, 154);
+            label6.Location = new Point(1162, 154);
             label6.Name = "label6";
             label6.Size = new Size(153, 37);
             label6.TabIndex = 12;
@@ -95,7 +96,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label5.Location = new Point(992, 154);
+            label5.Location = new Point(967, 154);
             label5.Name = "label5";
             label5.Size = new Size(114, 37);
             label5.TabIndex = 11;
@@ -106,7 +107,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label4.Location = new Point(738, 154);
+            label4.Location = new Point(720, 154);
             label4.Name = "label4";
             label4.Size = new Size(160, 37);
             label4.TabIndex = 10;
@@ -150,7 +151,7 @@
             // 
             lbmonth.AutoSize = true;
             lbmonth.Font = new Font("Arial", 22.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbmonth.Location = new Point(75, 37);
+            lbmonth.Location = new Point(53, 37);
             lbmonth.Name = "lbmonth";
             lbmonth.Size = new Size(472, 69);
             lbmonth.TabIndex = 14;
@@ -167,12 +168,25 @@
             btntoday.UseVisualStyleBackColor = true;
             btntoday.Click += btntoday_CLick;
             // 
+            // lbtoday
+            // 
+            lbtoday.AutoSize = true;
+            lbtoday.Font = new Font("Arial", 12F, FontStyle.Bold);
+            lbtoday.ImageAlign = ContentAlignment.MiddleRight;
+            lbtoday.Location = new Point(954, 62);
+            lbtoday.Name = "lbtoday";
+            lbtoday.Size = new Size(123, 37);
+            lbtoday.TabIndex = 16;
+            lbtoday.Text = "TODAY";
+            lbtoday.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(224, 224, 224);
             ClientSize = new Size(1608, 1099);
+            Controls.Add(lbtoday);
             Controls.Add(btntoday);
             Controls.Add(lbmonth);
             Controls.Add(label7);
@@ -208,5 +222,6 @@
         private Label label1;
         private Label lbmonth;
         private Button btntoday;
+        private Label lbtoday;
     }
 }
