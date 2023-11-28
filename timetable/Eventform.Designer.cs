@@ -72,6 +72,8 @@
             // 
             // btnsave
             // 
+            btnsave.Anchor = AnchorStyles.None;
+            btnsave.BackgroundImageLayout = ImageLayout.None;
             btnsave.Location = new Point(451, 237);
             btnsave.Name = "btnsave";
             btnsave.Size = new Size(94, 29);

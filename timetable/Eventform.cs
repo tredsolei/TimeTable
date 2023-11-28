@@ -14,7 +14,7 @@ namespace timetable
     public partial class Eventform : Form
     {
         //tạo 1 chuỗi kết nối 
-        String connectionString = "server = localhost; user id = root; database = db_timetable; sslmode = none";
+        String connectionString = "server=localhost;user id=root;database=db_timetable;sslmode=none";
 
         public Eventform()
         {
@@ -40,5 +40,7 @@ namespace timetable
             conn.Dispose();
             conn.Close();
         }
+
+
     }
 }

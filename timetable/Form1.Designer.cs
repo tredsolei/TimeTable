@@ -44,16 +44,18 @@
             // 
             // daycontainer
             // 
-            daycontainer.Location = new Point(12, 248);
+            daycontainer.Location = new Point(7, 155);
+            daycontainer.Margin = new Padding(2, 2, 2, 2);
             daycontainer.Name = "daycontainer";
-            daycontainer.Size = new Size(1548, 800);
+            daycontainer.Size = new Size(953, 500);
             daycontainer.TabIndex = 0;
             // 
             // btnprevious
             // 
-            btnprevious.Location = new Point(1297, 1054);
+            btnprevious.Location = new Point(798, 659);
+            btnprevious.Margin = new Padding(2, 2, 2, 2);
             btnprevious.Name = "btnprevious";
-            btnprevious.Size = new Size(50, 50);
+            btnprevious.Size = new Size(31, 31);
             btnprevious.TabIndex = 1;
             btnprevious.Text = "<";
             btnprevious.UseVisualStyleBackColor = true;
@@ -61,9 +63,10 @@
             // 
             // btnnext
             // 
-            btnnext.Location = new Point(1510, 1054);
+            btnnext.Location = new Point(929, 659);
+            btnnext.Margin = new Padding(2, 2, 2, 2);
             btnnext.Name = "btnnext";
-            btnnext.Size = new Size(50, 50);
+            btnnext.Size = new Size(31, 31);
             btnnext.TabIndex = 2;
             btnnext.Text = ">";
             btnnext.UseVisualStyleBackColor = true;
@@ -73,9 +76,10 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label7.Location = new Point(1393, 186);
+            label7.Location = new Point(857, 116);
+            label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new Size(130, 37);
+            label7.Size = new Size(81, 24);
             label7.TabIndex = 13;
             label7.Text = "Sunday";
             label7.TextAlign = ContentAlignment.MiddleCenter;
@@ -84,9 +88,10 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label6.Location = new Point(1160, 186);
+            label6.Location = new Point(714, 116);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(153, 37);
+            label6.Size = new Size(95, 24);
             label6.TabIndex = 12;
             label6.Text = "Saturday";
             label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -95,9 +100,10 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label5.Location = new Point(972, 186);
+            label5.Location = new Point(598, 116);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(114, 37);
+            label5.Size = new Size(69, 24);
             label5.TabIndex = 11;
             label5.Text = "Friday";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -106,9 +112,10 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label4.Location = new Point(718, 186);
+            label4.Location = new Point(442, 116);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(160, 37);
+            label4.Size = new Size(100, 24);
             label4.TabIndex = 10;
             label4.Text = "Thursday";
             label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -117,9 +124,10 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label3.Location = new Point(466, 186);
+            label3.Location = new Point(287, 116);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(193, 37);
+            label3.Size = new Size(120, 24);
             label3.TabIndex = 9;
             label3.Text = "Wednesday";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -128,9 +136,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label2.Location = new Point(270, 186);
+            label2.Location = new Point(166, 116);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(144, 37);
+            label2.Size = new Size(90, 24);
             label2.TabIndex = 8;
             label2.Text = "Tuesday";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -139,9 +148,10 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label1.Location = new Point(63, 186);
+            label1.Location = new Point(39, 116);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(136, 37);
+            label1.Size = new Size(85, 24);
             label1.TabIndex = 7;
             label1.Text = "Monday";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -150,18 +160,20 @@
             // 
             lbmonth.AutoSize = true;
             lbmonth.Font = new Font("Arial", 22.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbmonth.Location = new Point(49, 53);
+            lbmonth.Location = new Point(30, 33);
+            lbmonth.Margin = new Padding(2, 0, 2, 0);
             lbmonth.Name = "lbmonth";
-            lbmonth.Size = new Size(472, 69);
+            lbmonth.Size = new Size(301, 44);
             lbmonth.TabIndex = 14;
             lbmonth.Text = "MONTH + YEAR";
             lbmonth.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btntoday
             // 
-            btntoday.Location = new Point(1354, 1054);
+            btntoday.Location = new Point(833, 659);
+            btntoday.Margin = new Padding(2, 2, 2, 2);
             btntoday.Name = "btntoday";
-            btntoday.Size = new Size(150, 50);
+            btntoday.Size = new Size(92, 31);
             btntoday.TabIndex = 15;
             btntoday.Text = "Today";
             btntoday.UseVisualStyleBackColor = true;
@@ -169,10 +181,10 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(1578, 1122);
+            BackColor = Color.FromArgb(224, 224, 224);
+            ClientSize = new Size(971, 689);
             Controls.Add(btntoday);
             Controls.Add(lbmonth);
             Controls.Add(label7);
@@ -186,6 +198,7 @@
             Controls.Add(btnprevious);
             Controls.Add(daycontainer);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "timetable";
