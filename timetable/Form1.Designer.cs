@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             daycontainer = new FlowLayoutPanel();
-            btnprevious_Click = new Button();
-            btnnext_Click = new Button();
+            btnprevious = new Button();
+            btnnext = new Button();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -39,6 +39,7 @@
             label2 = new Label();
             label1 = new Label();
             lbmonth = new Label();
+            btntoday = new Button();
             SuspendLayout();
             // 
             // daycontainer
@@ -48,23 +49,25 @@
             daycontainer.Size = new Size(1538, 596);
             daycontainer.TabIndex = 0;
             // 
-            // btnprevious_Click
+            // btnprevious
             // 
-            btnprevious_Click.Location = new Point(1241, 861);
-            btnprevious_Click.Name = "btnprevious_Click";
-            btnprevious_Click.Size = new Size(150, 50);
-            btnprevious_Click.TabIndex = 1;
-            btnprevious_Click.Text = "Previous";
-            btnprevious_Click.UseVisualStyleBackColor = true;
+            btnprevious.Location = new Point(1288, 861);
+            btnprevious.Name = "btnprevious";
+            btnprevious.Size = new Size(50, 50);
+            btnprevious.TabIndex = 1;
+            btnprevious.Text = "<";
+            btnprevious.UseVisualStyleBackColor = true;
+            btnprevious.Click += btnprevious_Click;
             // 
-            // btnnext_Click
+            // btnnext
             // 
-            btnnext_Click.Location = new Point(1401, 861);
-            btnnext_Click.Name = "btnnext_Click";
-            btnnext_Click.Size = new Size(150, 50);
-            btnnext_Click.TabIndex = 2;
-            btnnext_Click.Text = "Next";
-            btnnext_Click.UseVisualStyleBackColor = true;
+            btnnext.Location = new Point(1500, 861);
+            btnnext.Name = "btnnext";
+            btnnext.Size = new Size(50, 50);
+            btnnext.TabIndex = 2;
+            btnnext.Text = ">";
+            btnnext.UseVisualStyleBackColor = true;
+            btnnext.Click += btnnext_Click;
             // 
             // label7
             // 
@@ -147,18 +150,29 @@
             // 
             lbmonth.AutoSize = true;
             lbmonth.Font = new Font("Arial", 22.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbmonth.Location = new Point(571, 55);
+            lbmonth.Location = new Point(48, 53);
             lbmonth.Name = "lbmonth";
-            lbmonth.Size = new Size(210, 69);
+            lbmonth.Size = new Size(472, 69);
             lbmonth.TabIndex = 14;
-            lbmonth.Text = "month";
+            lbmonth.Text = "MONTH + YEAR";
             lbmonth.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btntoday
+            // 
+            btntoday.Location = new Point(1344, 861);
+            btntoday.Name = "btntoday";
+            btntoday.Size = new Size(150, 50);
+            btntoday.TabIndex = 15;
+            btntoday.Text = "Today";
+            btntoday.UseVisualStyleBackColor = true;
+            btntoday.Click += btntoday_CLick;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1562, 933);
+            Controls.Add(btntoday);
             Controls.Add(lbmonth);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -167,8 +181,8 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(btnnext_Click);
-            Controls.Add(btnprevious_Click);
+            Controls.Add(btnnext);
+            Controls.Add(btnprevious);
             Controls.Add(daycontainer);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
@@ -182,8 +196,8 @@
         #endregion
 
         private FlowLayoutPanel daycontainer;
-        private Button btnprevious_Click;
-        private Button btnnext_Click;
+        private Button btnprevious;
+        private Button btnnext;
         private Label label7;
         private Label label6;
         private Label label5;
@@ -192,5 +206,6 @@
         private Label label2;
         private Label label1;
         private Label lbmonth;
+        private Button btntoday;
     }
 }
