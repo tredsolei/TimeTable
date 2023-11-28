@@ -28,7 +28,7 @@ namespace timetable
 
         private void btnsave_Click(object sender, EventArgs e)
         {
-            MySqlcon
+            
         }
     }
 }
