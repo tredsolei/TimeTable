@@ -23,12 +23,22 @@ namespace timetable
 
         private void Eventform_Load(object sender, EventArgs e)
         {
-
+            txtDate.Text =Form1.static_month + "/"+ UserControlDays.static_day + "/" + Form1.static_year;
         }
 
         private void btnsave_Click(object sender, EventArgs e)
         {
-            
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            conn.Open();
+            String sql = "INSERT INTO tbl_timetable(date,event)values(?,?)";
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.AddWithValue("date",txtDate.Text);
+            cmd.Parameters.AddWithValue("event", txtEvent.Text);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Saved!");
+            conn.Dispose();
+            conn.Close();
         }
     }
 }

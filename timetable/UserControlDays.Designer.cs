@@ -52,6 +52,7 @@
             Margin = new Padding(2);
             Name = "UserControlDays";
             Size = new Size(131, 80);
+            Click += UserControlDays_Click;
             ResumeLayout(false);
             PerformLayout();
         }

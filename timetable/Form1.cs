@@ -14,6 +14,8 @@ namespace timetable
 
         int month, year;
 
+        public static int static_month, static_year;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             // Gọi hàm hiển thị ngày khi form được tải
@@ -32,6 +34,9 @@ namespace timetable
 
             // Hiển thị tháng và năm hiện tại trong label
             lbmonth.Text = monthname + " " + year;
+
+            static_month = month;
+            static_year = year;
 
             // Tính toán ngày đầu tháng và số ngày trong tháng
             DateTime startofthemonth = new DateTime(now.Year, now.Month, 1);
@@ -74,6 +79,8 @@ namespace timetable
             // Xóa daycontainer và hiển thị các ngày của tháng trước đó
             daycontainer.Controls.Clear();
             month--;
+            static_month = month;
+            static_year = year;
 
             // Điều chỉnh năm nếu cần
             if (month < 1)
@@ -119,6 +126,8 @@ namespace timetable
             // Xóa daycontainer và hiển thị các ngày của tháng tiếp theo
             daycontainer.Controls.Clear();
             month++;
+            static_month = month;
+            static_year = year;
 
             // Điều chỉnh năm nếu cần
             if (month > 12)
