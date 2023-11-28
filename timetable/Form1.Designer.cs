@@ -154,6 +154,7 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "timetable";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }

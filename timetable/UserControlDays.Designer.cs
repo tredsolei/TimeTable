@@ -35,7 +35,7 @@
             // 
             lbdays.AutoSize = true;
             lbdays.Font = new Font("Arial", 10.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbdays.Location = new Point(15, 14);
+            lbdays.Location = new Point(148, 16);
             lbdays.Name = "lbdays";
             lbdays.Size = new Size(47, 33);
             lbdays.TabIndex = 0;
