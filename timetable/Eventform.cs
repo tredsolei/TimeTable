@@ -40,7 +40,5 @@ namespace timetable
             conn.Dispose();
             conn.Close();
         }
-
-
     }
 }
