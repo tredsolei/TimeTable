@@ -166,7 +166,7 @@
             btntoday.TabIndex = 15;
             btntoday.Text = "Today";
             btntoday.UseVisualStyleBackColor = true;
-            btntoday.Click += btntoday_CLick;
+            btntoday.Click += btntoday_Click;
             // 
             // lbtoday
             // 

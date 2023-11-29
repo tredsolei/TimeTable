@@ -49,7 +49,7 @@
             // 
             lbevent.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lbevent.BackColor = SystemColors.HighlightText;
-            lbevent.Location = new Point(5, 51);
+            lbevent.Location = new Point(9, 51);
             lbevent.Margin = new Padding(5, 0, 5, 0);
             lbevent.Name = "lbevent";
             lbevent.Size = new Size(195, 77);

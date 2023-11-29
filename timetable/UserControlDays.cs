@@ -41,20 +41,45 @@ namespace timetable
         // Hiển thị Event
         public void displayEvent()
         {
-            MySqlConnection conn = new MySqlConnection(connectionString);
-            conn.Open();
-            String sql = "SELECT * FROM tbl_timetable WHERE date = ?";
-            MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = sql;
-            cmd.Parameters.AddWithValue("date", Form1.static_year + "/" + Form1.static_year + "/" + lbdays.Text);
-            MySqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                lbevent.Text = reader["event"].ToString();
+                conn.Open();
+
+                // Tạo đối tượng DateTime từ các biến static
+                string dayString = lbdays.Text;
+
+                if (int.TryParse(dayString, out int day))
+                {
+                    int month = Form1.static_month;
+                    int year = Form1.static_year;
+
+                    DateTime eventDate = new DateTime(year, month, day);
+
+                    String sql = "SELECT * FROM tbl_timetable WHERE date = @date";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@date", eventDate);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            lbevent.Text = reader["event"].ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    // Xử lý trường hợp không chuyển đổi được giá trị string sang int
+                    MessageBox.Show("Invalid day value. Please check the input.");
+                }
             }
-            reader.Dispose();
-            cmd.Dispose();
-            conn.Close();
+        }
+
+        // Phương thức công khai để yêu cầu hiển thị sự kiện
+    public void RequestDisplayEvent()
+        {
+            // Gọi phương thức hiển thị sự kiện
+            displayEvent();
         }
 
         private void lbevent_Click(object sender, EventArgs e)

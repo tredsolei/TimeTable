@@ -72,17 +72,46 @@ namespace timetable
 
         private void btnsave_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(connectionString);
-            conn.Open();
-            String sql = "INSERT INTO tbl_timetable(date,event)values(?,?)";
-            MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = sql;
-            cmd.Parameters.AddWithValue("date",txtDate.Text);
-            cmd.Parameters.AddWithValue("event", txtEvent.Text);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Saved!");
-            conn.Dispose();
-            conn.Close();
+            DateTime eventDate;
+
+            // Lấy ngày từ các biến static
+            string? dayString = UserControlDays.static_day;
+
+            // Chuyển đổi giá trị string sang int sử dụng int.TryParse
+            if (int.TryParse(dayString, out int day))
+            {
+                // Lấy các giá trị khác
+                int month = Form1.static_month;
+                int year = Form1.static_year;
+
+                // Tạo đối tượng DateTime từ các thông tin trên
+                eventDate = new DateTime(year, month, day);
+            }
+            else
+            {
+                // Xử lý trường hợp không chuyển đổi được giá trị string sang int
+                MessageBox.Show("Invalid day value. Please check the input.");
+                return; // Exit the method if the day value is invalid
+            }
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                String sql = "INSERT INTO tbl_timetable(date, event) VALUES (@date, @event)";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@date", eventDate);
+                cmd.Parameters.AddWithValue("@event", txtEvent.Text);
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Saved!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
+            }
         }
     }
 }
