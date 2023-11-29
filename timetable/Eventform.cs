@@ -23,7 +23,51 @@ namespace timetable
 
         private void Eventform_Load(object sender, EventArgs e)
         {
-            txtDate.Text =Form1.static_month + "/"+ UserControlDays.static_day + "/" + Form1.static_year;
+            // Lấy ngày từ các biến static
+            string? dayString = UserControlDays.static_day;
+
+            // Chuyển đổi giá trị string sang int sử dụng int.TryParse
+            if (int.TryParse(dayString, out int day))
+            {
+                // Lấy các giá trị khác
+                int month = Form1.static_month;
+                int year = Form1.static_year;
+
+                // Tạo đối tượng DateTime từ các thông tin trên
+                DateTime eventDate = new DateTime(year, month, day);
+
+                // Format ngày theo định dạng yêu cầu
+                string formattedDate = $"{eventDate.ToString("dddd, d")}{GetDayText(day)} {eventDate.ToString("MMMM, yyyy")}";
+
+                // Hiển thị ngày đã được định dạng trên TextBox
+                txtDate.Text = formattedDate;
+            }
+            else
+            {
+                // Xử lý trường hợp không chuyển đổi được giá trị string sang int
+                MessageBox.Show("Invalid day value. Please check the input.");
+            }
+        }
+
+        // Hàm chuyển đổi số ngày thành chữ (ví dụ, "1" thành "1st")
+        private string GetDayText(int day)
+        {
+            if (day >= 11 && day <= 13)
+            {
+                return "th";
+            }
+
+            switch (day % 10)
+            {
+                case 1:
+                    return "st";
+                case 2:
+                    return "nd";
+                case 3:
+                    return "rd";
+                default:
+                    return "th";
+            }
         }
 
         private void btnsave_Click(object sender, EventArgs e)
@@ -40,7 +84,5 @@ namespace timetable
             conn.Dispose();
             conn.Close();
         }
-
-
     }
 }

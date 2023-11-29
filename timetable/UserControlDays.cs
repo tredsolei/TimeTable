@@ -14,7 +14,7 @@ namespace timetable
     public partial class UserControlDays : UserControl
     {
         String connectionString = "server=localhost;user id=root;database=db_timetable;sslmode=none";
-        public static string static_day;
+        public static string? static_day;
 
         public UserControlDays()
         {
