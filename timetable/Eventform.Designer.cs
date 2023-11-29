@@ -93,6 +93,7 @@
             Controls.Add(txtEvent);
             Controls.Add(txtDate);
             Name = "Eventform";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Eventform";
             Load += Eventform_Load;
             ResumeLayout(false);
