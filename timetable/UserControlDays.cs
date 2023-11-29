@@ -57,6 +57,14 @@ namespace timetable
             conn.Close();
         }
 
+        private void lbevent_Click(object sender, EventArgs e)
+        {
+            static_day = lbdays.Text;
+            timer1.Start();
+            Eventform eventform = new Eventform();
+            eventform.Show();
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             displayEvent();
