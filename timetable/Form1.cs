@@ -113,8 +113,6 @@ namespace timetable
             // Xóa daycontainer và hiển thị các ngày của tháng trước đó
             daycontainer.Controls.Clear();
             month--;
-            static_month = month;
-            static_year = year;
 
             // Điều chỉnh năm nếu cần
             if (month < 1)
@@ -122,6 +120,9 @@ namespace timetable
                 month = 12;
                 year--;
             }
+
+            static_month = month;
+            static_year = year;
 
             // Tính toán ngày đầu tháng và số ngày trong tháng mới
             DateTime startofthemonth = new DateTime(year, month, 1);
@@ -169,8 +170,6 @@ namespace timetable
             // Xóa daycontainer và hiển thị các ngày của tháng tiếp theo
             daycontainer.Controls.Clear();
             month++;
-            static_month = month;
-            static_year = year;
 
             // Điều chỉnh năm nếu cần
             if (month > 12)
@@ -178,6 +177,9 @@ namespace timetable
                 month = 1;
                 year++;
             }
+
+            static_month = month;
+            static_year = year;
 
             // Tính toán ngày đầu tháng và số ngày trong tháng mới
             DateTime startofthemonth = new DateTime(year, month, 1);
