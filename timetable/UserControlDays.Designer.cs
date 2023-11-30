@@ -44,6 +44,7 @@
             lbdays.TabIndex = 0;
             lbdays.Text = "00";
             lbdays.TextAlign = ContentAlignment.TopRight;
+            lbdays.Click += lbevent_Click;
             // 
             // lbevent
             // 
@@ -71,7 +72,7 @@
             Controls.Add(lbdays);
             Name = "UserControlDays";
             Size = new Size(213, 128);
-            Click += UserControlDays_Click;
+            Click += lbevent_Click;
             ResumeLayout(false);
             PerformLayout();
         }
