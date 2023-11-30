@@ -12,7 +12,9 @@ namespace timetable
             InitializeComponent();
         }
 
-        int month, year;
+        int day, month, year;
+
+        public static int static_month, static_year;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -26,6 +28,7 @@ namespace timetable
             DateTime now = DateTime.UtcNow;
             month = now.Month;
             year = now.Year;
+            day = now.Day;
 
             // Lấy tên của tháng hiện tại
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
@@ -33,9 +36,14 @@ namespace timetable
             // Hiển thị tháng và năm hiện tại trong label
             lbmonth.Text = monthname + " " + year;
 
+            // Hiển thị thứ ngày tháng năm hiện tại với đuôi
+            lbtoday.Text = $"Today: {now.ToString("dddd, dd")}{GetDaySuffix(now.Day)} {now.ToString("MMMM, yyyy", CultureInfo.InvariantCulture)}";
+            static_month = month;
+            static_year = year;
+
             // Tính toán ngày đầu tháng và số ngày trong tháng
-            DateTime startofthemonth = new DateTime(now.Year, now.Month, 1);
-            int days = DateTime.DaysInMonth(now.Year, now.Month);
+            DateTime startofthemonth = new DateTime(year, month, 1);
+            int days = DateTime.DaysInMonth(year, month);
 
             // Tính toán thứ của ngày đầu tháng (1 đến 7, 1 là Chủ Nhật)
             int dayoftheweek = Convert.ToInt32(startofthemonth.DayOfWeek.ToString("d"));
@@ -60,9 +68,40 @@ namespace timetable
                 ucdays.days(i);
                 daycontainer.Controls.Add(ucdays);
             }
+
+            //Hiển thị event khi ấn chạy chương trình
+            foreach (Control control in daycontainer.Controls)
+            {
+                if (control is UserControlDays)
+                {
+                    ((UserControlDays)control).RequestDisplayEvent();
+                }
+            }
         }
 
-        private void btntoday_CLick(object sender, EventArgs e)
+
+        // Phương thức để xác định đuôi cho số ngày
+        private string GetDaySuffix(int day)
+        {
+            if (day >= 11 && day <= 13)
+            {
+                return "th";
+            }
+
+            switch (day % 10)
+            {
+                case 1:
+                    return "st";
+                case 2:
+                    return "nd";
+                case 3:
+                    return "rd";
+                default:
+                    return "th";
+            }
+        }
+
+        private void btntoday_Click(object sender, EventArgs e)
         {
             // Xóa daycontainer và hiển thị lại các ngày trong tháng hiện tại
             daycontainer.Controls.Clear();
@@ -82,6 +121,9 @@ namespace timetable
                 year--;
             }
 
+            static_month = month;
+            static_year = year;
+
             // Tính toán ngày đầu tháng và số ngày trong tháng mới
             DateTime startofthemonth = new DateTime(year, month, 1);
             int days = DateTime.DaysInMonth(year, month);
@@ -111,6 +153,15 @@ namespace timetable
                 UserControlDays ucdays = new UserControlDays();
                 ucdays.days(i);
                 daycontainer.Controls.Add(ucdays);
+            }
+
+            //Hiển thị event khi ấn chạy chương trình
+            foreach (Control control in daycontainer.Controls)
+            {
+                if (control is UserControlDays)
+                {
+                    ((UserControlDays)control).RequestDisplayEvent();
+                }
             }
         }
 
@@ -127,6 +178,9 @@ namespace timetable
                 year++;
             }
 
+            static_month = month;
+            static_year = year;
+
             // Tính toán ngày đầu tháng và số ngày trong tháng mới
             DateTime startofthemonth = new DateTime(year, month, 1);
             int days = DateTime.DaysInMonth(year, month);
@@ -156,6 +210,15 @@ namespace timetable
                 UserControlDays ucdays = new UserControlDays();
                 ucdays.days(i);
                 daycontainer.Controls.Add(ucdays);
+            }
+
+            //Hiển thị event khi ấn chạy chương trình
+            foreach (Control control in daycontainer.Controls)
+            {
+                if (control is UserControlDays)
+                {
+                    ((UserControlDays)control).RequestDisplayEvent();
+                }
             }
         }
     }

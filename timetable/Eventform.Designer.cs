@@ -72,6 +72,8 @@
             // 
             // btnsave
             // 
+            btnsave.Anchor = AnchorStyles.None;
+            btnsave.BackgroundImageLayout = ImageLayout.None;
             btnsave.Location = new Point(451, 237);
             btnsave.Name = "btnsave";
             btnsave.Size = new Size(94, 29);
@@ -91,6 +93,7 @@
             Controls.Add(txtEvent);
             Controls.Add(txtDate);
             Name = "Eventform";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Eventform";
             Load += Eventform_Load;
             ResumeLayout(false);

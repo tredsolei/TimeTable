@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace timetable
 {
     public partial class UserControlDays : UserControl
     {
+        String connectionString = "server=localhost;user id=root;database=db_timetable;sslmode=none";
+        public static string? static_day;
+
         public UserControlDays()
         {
             InitializeComponent();
@@ -25,6 +29,70 @@ namespace timetable
         public void days(int numday)
         {
             lbdays.Text = numday + "";
+        }
+
+        private void UserControlDays_Click(object sender, EventArgs e)
+        {
+            static_day = lbdays.Text;
+            timer1.Start();
+            Eventform eventform = new Eventform();
+            eventform.Show();
+        }
+        // Hiển thị Event
+        public void displayEvent()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                // Tạo đối tượng DateTime từ các biến static
+                string dayString = lbdays.Text;
+
+                if (int.TryParse(dayString, out int day))
+                {
+                    int month = Form1.static_month;
+                    int year = Form1.static_year;
+
+                    DateTime eventDate = new DateTime(year, month, day);
+
+                    String sql = "SELECT * FROM tbl_timetable WHERE date = @date";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@date", eventDate);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            lbevent.Text = reader["event"].ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    // Xử lý trường hợp không chuyển đổi được giá trị string sang int
+                    MessageBox.Show("Invalid day value. Please check the input.");
+                }
+            }
+        }
+
+        // Phương thức công khai để yêu cầu hiển thị sự kiện
+    public void RequestDisplayEvent()
+        {
+            // Gọi phương thức hiển thị sự kiện
+            displayEvent();
+        }
+
+        private void lbevent_Click(object sender, EventArgs e)
+        {
+            static_day = lbdays.Text;
+            timer1.Start();
+            Eventform eventform = new Eventform();
+            eventform.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            displayEvent();
         }
     }
 }
