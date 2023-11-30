@@ -39,34 +39,38 @@
             // 
             txtDate.Enabled = false;
             txtDate.Font = new Font("Segoe UI", 12F);
-            txtDate.Location = new Point(79, 81);
+            txtDate.Location = new Point(128, 130);
+            txtDate.Margin = new Padding(5, 5, 5, 5);
             txtDate.Name = "txtDate";
-            txtDate.Size = new Size(466, 34);
+            txtDate.Size = new Size(755, 50);
             txtDate.TabIndex = 0;
             // 
             // txtEvent
             // 
             txtEvent.Font = new Font("Segoe UI", 12F);
-            txtEvent.Location = new Point(79, 170);
+            txtEvent.Location = new Point(128, 272);
+            txtEvent.Margin = new Padding(5, 5, 5, 5);
             txtEvent.Name = "txtEvent";
-            txtEvent.Size = new Size(466, 34);
+            txtEvent.Size = new Size(755, 50);
             txtEvent.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(78, 58);
+            label1.Location = new Point(127, 93);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(41, 20);
+            label1.Size = new Size(64, 32);
             label1.TabIndex = 2;
             label1.Text = "Date";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(78, 148);
+            label2.Location = new Point(127, 237);
+            label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(45, 20);
+            label2.Size = new Size(73, 32);
             label2.TabIndex = 3;
             label2.Text = "Event";
             // 
@@ -74,9 +78,10 @@
             // 
             btnsave.Anchor = AnchorStyles.None;
             btnsave.BackgroundImageLayout = ImageLayout.None;
-            btnsave.Location = new Point(451, 237);
+            btnsave.Location = new Point(733, 379);
+            btnsave.Margin = new Padding(5, 5, 5, 5);
             btnsave.Name = "btnsave";
-            btnsave.Size = new Size(94, 29);
+            btnsave.Size = new Size(153, 46);
             btnsave.TabIndex = 4;
             btnsave.Text = "Save";
             btnsave.UseVisualStyleBackColor = true;
@@ -84,14 +89,16 @@
             // 
             // Eventform
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AcceptButton = btnsave;
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(614, 299);
+            ClientSize = new Size(998, 478);
             Controls.Add(btnsave);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(txtEvent);
             Controls.Add(txtDate);
+            Margin = new Padding(5, 5, 5, 5);
             Name = "Eventform";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Eventform";

@@ -106,6 +106,7 @@ namespace timetable
                 {
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Saved!");
+                    Hide();
                 }
                 catch (Exception ex)
                 {
