@@ -31,13 +31,31 @@ namespace timetable
             lbdays.Text = numday + "";
         }
 
-        private void UserControlDays_Click(object sender, EventArgs e)
+        private void lbevent_Click(object sender, EventArgs e)
         {
-            static_day = lbdays.Text;
-            timer1.Start();
-            Eventform eventform = new Eventform();
-            eventform.Show();
+            // Kiểm tra nếu là một sự kiện chuột
+            if (e is MouseEventArgs mouseEventArgs)
+            {
+                // Kiểm tra nếu là một nhấn chuột trái
+                if (mouseEventArgs.Button == MouseButtons.Left)
+                {
+                    // Xử lý sự kiện nhấn chuột trái
+                    static_day = lbdays.Text;
+                    timer1.Start();
+                    Eventform eventform = new Eventform();
+                    eventform.Show();
+                }
+                // Kiểm tra nếu là một nhấn chuột phải
+                else if (mouseEventArgs.Button == MouseButtons.Right)
+                {
+                    // Xử lý sự kiện nhấn chuột phải
+                    static_day = lbdays.Text;
+                    Allevent allevent = new Allevent();
+                    allevent.Show();
+                }
+            }
         }
+
         // Hiển thị Event
         public void displayEvent()
         {
@@ -76,18 +94,10 @@ namespace timetable
         }
 
         // Phương thức công khai để yêu cầu hiển thị sự kiện
-    public void RequestDisplayEvent()
+        public void RequestDisplayEvent()
         {
             // Gọi phương thức hiển thị sự kiện
             displayEvent();
-        }
-
-        private void lbevent_Click(object sender, EventArgs e)
-        {
-            static_day = lbdays.Text;
-            timer1.Start();
-            Eventform eventform = new Eventform();
-            eventform.Show();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

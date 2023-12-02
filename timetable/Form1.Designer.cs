@@ -41,18 +41,19 @@
             lbmonth = new Label();
             btntoday = new Button();
             lbtoday = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // daycontainer
             // 
-            daycontainer.Location = new Point(31, 216);
+            daycontainer.Location = new Point(31, 270);
             daycontainer.Name = "daycontainer";
             daycontainer.Size = new Size(1549, 800);
             daycontainer.TabIndex = 0;
             // 
             // btnprevious
             // 
-            btnprevious.Location = new Point(1317, 1031);
+            btnprevious.Location = new Point(1317, 1090);
             btnprevious.Name = "btnprevious";
             btnprevious.Size = new Size(50, 50);
             btnprevious.TabIndex = 1;
@@ -62,7 +63,7 @@
             // 
             // btnnext
             // 
-            btnnext.Location = new Point(1530, 1031);
+            btnnext.Location = new Point(1530, 1090);
             btnnext.Name = "btnnext";
             btnnext.Size = new Size(50, 50);
             btnnext.TabIndex = 2;
@@ -74,7 +75,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label7.Location = new Point(1389, 154);
+            label7.Location = new Point(1389, 208);
             label7.Name = "label7";
             label7.Size = new Size(130, 37);
             label7.TabIndex = 13;
@@ -85,7 +86,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label6.Location = new Point(1162, 154);
+            label6.Location = new Point(1162, 208);
             label6.Name = "label6";
             label6.Size = new Size(153, 37);
             label6.TabIndex = 12;
@@ -96,7 +97,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label5.Location = new Point(967, 154);
+            label5.Location = new Point(967, 208);
             label5.Name = "label5";
             label5.Size = new Size(114, 37);
             label5.TabIndex = 11;
@@ -107,7 +108,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label4.Location = new Point(720, 154);
+            label4.Location = new Point(720, 208);
             label4.Name = "label4";
             label4.Size = new Size(160, 37);
             label4.TabIndex = 10;
@@ -118,7 +119,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label3.Location = new Point(486, 154);
+            label3.Location = new Point(486, 208);
             label3.Name = "label3";
             label3.Size = new Size(193, 37);
             label3.TabIndex = 9;
@@ -129,7 +130,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label2.Location = new Point(290, 154);
+            label2.Location = new Point(290, 208);
             label2.Name = "label2";
             label2.Size = new Size(144, 37);
             label2.TabIndex = 8;
@@ -140,7 +141,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial", 12F, FontStyle.Bold);
-            label1.Location = new Point(83, 154);
+            label1.Location = new Point(83, 208);
             label1.Name = "label1";
             label1.Size = new Size(136, 37);
             label1.TabIndex = 7;
@@ -151,7 +152,7 @@
             // 
             lbmonth.AutoSize = true;
             lbmonth.Font = new Font("Arial", 22.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbmonth.Location = new Point(53, 37);
+            lbmonth.Location = new Point(53, 91);
             lbmonth.Name = "lbmonth";
             lbmonth.Size = new Size(472, 69);
             lbmonth.TabIndex = 14;
@@ -160,7 +161,7 @@
             // 
             // btntoday
             // 
-            btntoday.Location = new Point(1374, 1031);
+            btntoday.Location = new Point(1374, 1090);
             btntoday.Name = "btntoday";
             btntoday.Size = new Size(150, 50);
             btntoday.TabIndex = 15;
@@ -170,22 +171,32 @@
             // 
             // lbtoday
             // 
-            lbtoday.AutoSize = true;
             lbtoday.Font = new Font("Arial", 12F, FontStyle.Bold);
             lbtoday.ImageAlign = ContentAlignment.MiddleRight;
-            lbtoday.Location = new Point(954, 62);
+            lbtoday.Location = new Point(804, 103);
             lbtoday.Name = "lbtoday";
-            lbtoday.Size = new Size(123, 37);
+            lbtoday.Size = new Size(715, 62);
             lbtoday.TabIndex = 16;
             lbtoday.Text = "TODAY";
             lbtoday.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(21, 20);
+            button1.Name = "button1";
+            button1.Size = new Size(99, 50);
+            button1.TabIndex = 17;
+            button1.Text = "Exit";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += btnexit_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(224, 224, 224);
-            ClientSize = new Size(1608, 1099);
+            ClientSize = new Size(1608, 1158);
+            Controls.Add(button1);
             Controls.Add(lbtoday);
             Controls.Add(btntoday);
             Controls.Add(lbmonth);
@@ -223,5 +234,6 @@
         private Label lbmonth;
         private Button btntoday;
         private Label lbtoday;
+        private Button button1;
     }
 }

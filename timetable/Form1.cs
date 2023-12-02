@@ -37,7 +37,7 @@ namespace timetable
             lbmonth.Text = monthname + " " + year;
 
             // Hiển thị thứ ngày tháng năm hiện tại với đuôi
-            lbtoday.Text = $"Today: {now.ToString("dddd, dd")}{GetDaySuffix(now.Day)} {now.ToString("MMMM, yyyy", CultureInfo.InvariantCulture)}";
+            lbtoday.Text = $"Today: {now.ToString("dddd, d")}{GetDaySuffix(now.Day)} {now.ToString("MMMM, yyyy", CultureInfo.InvariantCulture)}";
             static_month = month;
             static_year = year;
 
@@ -221,5 +221,20 @@ namespace timetable
                 }
             }
         }
+
+        private void btnexit_Click(object sender, EventArgs e)
+        {
+            // Display a confirmation dialog with Yes and No buttons
+            DialogResult result = MessageBox.Show("Are you sure to close the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Check the user's response
+            if (result == DialogResult.Yes)
+            {
+                // If the user chooses "Yes," close the current form
+                this.Close();
+            }
+            // If the user chooses "No," do nothing
+        }
+
     }
 }

@@ -42,11 +42,6 @@ namespace timetable
                 // Hiển thị ngày đã được định dạng trên TextBox
                 txtDate.Text = formattedDate;
             }
-            else
-            {
-                // Xử lý trường hợp không chuyển đổi được giá trị string sang int
-                MessageBox.Show("Invalid day value. Please check the input.");
-            }
         }
 
         // Hàm chuyển đổi số ngày thành chữ (ví dụ, "1" thành "1st")
@@ -106,11 +101,28 @@ namespace timetable
                 {
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Saved!");
+                    Hide();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Error: {ex.Message}");
                 }
+            }
+        }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
+            // Tìm kiếm form cha và đóng nó
+            Form parentForm = this.FindForm()!; // Sử dụng toán tử bỏ qua null
+
+            if (parentForm != null)
+            {
+                // Đóng form hiện tại
+                parentForm.Hide();
+            }
+            else
+            {
+                // Xử lý trường hợp UserControlDays không được chứa trong một form
             }
         }
     }
