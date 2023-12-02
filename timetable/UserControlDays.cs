@@ -49,6 +49,7 @@ namespace timetable
                 else if (mouseEventArgs.Button == MouseButtons.Right)
                 {
                     // Xử lý sự kiện nhấn chuột phải
+                    static_day = lbdays.Text;
                     Allevent allevent = new Allevent();
                     allevent.Show();
                 }

@@ -58,20 +58,22 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label1.Location = new Point(125, 125);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(64, 32);
+            label1.Size = new Size(67, 32);
             label1.TabIndex = 2;
             label1.Text = "Date";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label2.Location = new Point(125, 269);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(73, 32);
+            label2.Size = new Size(77, 32);
             label2.TabIndex = 3;
             label2.Text = "Event";
             // 

@@ -1,49 +1,47 @@
-﻿using MySqlX.XDevAPI.Relational;
-using System;
-using System.Globalization;
+﻿using System;
 using System.Windows.Forms;
 
 namespace timetable
 {
     public partial class Allevent : Form
     {
-        private string selectedDay;
-        private int selectedMonth;
-
         public Allevent()
         {
             InitializeComponent();
-
-            // Assign a default value if needed
-            selectedDay = "DefaultDay";
         }
-        // Thêm phương thức để thiết lập ngày và tháng từ UserControlDays
-
 
         private void Allevent_Load(object sender, EventArgs e)
         {
-            // Call the SetDateAndMonth method to set the initial date and month
-            SetDateAndMonth("DefaultDay", 1);
-        }
+            // Lấy ngày từ các biến static
+            string? dayString = UserControlDays.static_day;
 
-        private void SetDateAndMonth(string day, int month)
-        {
-            selectedDay = day;
-            selectedMonth = month;
-            // Gọi phương thức hiển thị ngày và tháng
-            displaylabel();
+            // Chuyển đổi giá trị string sang int sử dụng int.TryParse
+            if (int.TryParse(dayString, out int day))
+            {
+                // Lấy các giá trị khác
+                int month = Form1.static_month;
+                int year = Form1.static_year;
+
+                // Tạo đối tượng DateTime từ các thông tin trên
+                DateTime eventDate = new DateTime(year, month, day);
+
+                // Format ngày theo định dạng yêu cầu
+                string formattedDate = $"{eventDate:dddd, d}{GetDaySuffix(day)} {eventDate:MMMM, yyyy}";
+
+                // Hiển thị ngày đã được định dạng trên TextBox
+                lbdays.Text = formattedDate;
+            }
+            else
+            {
+                // Xử lý trường hợp không chuyển đổi được giá trị string sang int
+                MessageBox.Show("Invalid day value. Please check the input.");
+            }
         }
 
         private void btnback_Click(object sender, EventArgs e)
         {
-            // Tạo một thể hiện của form Allevent
-            Form1 defaultform = new Form1();
-
-            // Hiển thị form Allevent
-            defaultform.Show();
-
             // Tìm kiếm form cha và đóng nó
-            Form parentForm = this.FindForm()!; // Sử dụng toán tử bỏ qua null
+            Form parentForm = this.FindForm();
 
             if (parentForm != null)
             {
@@ -75,32 +73,5 @@ namespace timetable
                     return "th";
             }
         }
-
-        private void displaylabel()
-        {
-            CultureInfo cultureInfo = CultureInfo.InvariantCulture;
-
-            if (int.TryParse(selectedDay, out int day) && selectedMonth >= 1 && selectedMonth <= 12)
-            {
-                string dateString = $"{selectedMonth:D2}/{day:D2}";
-
-                if (DateTime.TryParseExact(dateString, "MM/dd", cultureInfo, DateTimeStyles.None, out DateTime selectedDate))
-                {
-                    // Use string interpolation to format the date
-                    labelday.Text = $"{selectedDate:dddd, dd}{GetDaySuffix(day)} {selectedDate:MMMM, yyyy}";
-                }
-                else
-                {
-                    // Handle the case where parsing fails
-                    labelday.Text = "Invalid Date";
-                }
-            }
-            else
-            {
-                // Handle the case where parsing of day or month fails
-                labelday.Text = "Invalid Date";
-            }
-        }
-
     }
 }

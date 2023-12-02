@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            labelday = new Label();
+            lbdays = new Label();
             btnback = new Button();
             label1 = new Label();
             SuspendLayout();
             // 
-            // labelday
+            // lbdays
             // 
-            labelday.AutoSize = true;
-            labelday.Font = new Font("Arial", 11F);
-            labelday.Location = new Point(31, 104);
-            labelday.Name = "labelday";
-            labelday.Size = new Size(95, 35);
-            labelday.TabIndex = 0;
-            labelday.Text = "label1";
+            lbdays.Font = new Font("Segoe UI", 12F);
+            lbdays.Location = new Point(310, 24);
+            lbdays.Name = "lbdays";
+            lbdays.Size = new Size(732, 46);
+            lbdays.TabIndex = 0;
+            lbdays.Text = "day";
+            lbdays.TextAlign = ContentAlignment.MiddleRight;
             // 
             // btnback
             // 
-            btnback.Font = new Font("Arial", 11F);
+            btnback.Font = new Font("Segoe UI", 9F);
             btnback.Location = new Point(31, 28);
             btnback.Name = "btnback";
-            btnback.Size = new Size(113, 46);
+            btnback.Size = new Size(150, 46);
             btnback.TabIndex = 1;
             btnback.Text = "Back";
             btnback.UseVisualStyleBackColor = true;
@@ -57,10 +57,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(413, 37);
+            label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label1.Location = new Point(421, 75);
             label1.Name = "label1";
-            label1.Size = new Size(249, 56);
+            label1.Size = new Size(199, 51);
             label1.TabIndex = 2;
             label1.Text = "All events";
             // 
@@ -72,7 +72,7 @@
             ClientSize = new Size(1075, 535);
             Controls.Add(label1);
             Controls.Add(btnback);
-            Controls.Add(labelday);
+            Controls.Add(lbdays);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Allevent";
             StartPosition = FormStartPosition.CenterScreen;
@@ -85,7 +85,7 @@
 
         #endregion
 
-        private Label labelday;
+        private Label lbdays;
         private Button btnback;
         private Label label1;
     }

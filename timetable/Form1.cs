@@ -37,7 +37,7 @@ namespace timetable
             lbmonth.Text = monthname + " " + year;
 
             // Hiển thị thứ ngày tháng năm hiện tại với đuôi
-            lbtoday.Text = $"Today: {now.ToString("dddd, dd")}{GetDaySuffix(now.Day)} {now.ToString("MMMM, yyyy", CultureInfo.InvariantCulture)}";
+            lbtoday.Text = $"Today: {now.ToString("dddd, d")}{GetDaySuffix(now.Day)} {now.ToString("MMMM, yyyy", CultureInfo.InvariantCulture)}";
             static_month = month;
             static_year = year;
 

@@ -170,12 +170,11 @@
             // 
             // lbtoday
             // 
-            lbtoday.AutoSize = true;
             lbtoday.Font = new Font("Arial", 12F, FontStyle.Bold);
             lbtoday.ImageAlign = ContentAlignment.MiddleRight;
-            lbtoday.Location = new Point(954, 62);
+            lbtoday.Location = new Point(804, 49);
             lbtoday.Name = "lbtoday";
-            lbtoday.Size = new Size(123, 37);
+            lbtoday.Size = new Size(715, 62);
             lbtoday.TabIndex = 16;
             lbtoday.Text = "TODAY";
             lbtoday.TextAlign = ContentAlignment.MiddleRight;

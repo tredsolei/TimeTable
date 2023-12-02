@@ -117,12 +117,6 @@ namespace timetable
 
         private void btnback_Click(object sender, EventArgs e)
         {
-            // Tạo một thể hiện của form Allevent
-            Form1 defaultform = new Form1();
-
-            // Hiển thị form Allevent
-            defaultform.Show();
-
             // Tìm kiếm form cha và đóng nó
             Form parentForm = this.FindForm()!; // Sử dụng toán tử bỏ qua null
 
