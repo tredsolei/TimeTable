@@ -31,6 +31,7 @@
             lbdays = new Label();
             btnback = new Button();
             label1 = new Label();
+            displayallev = new Label();
             SuspendLayout();
             // 
             // lbdays
@@ -58,11 +59,20 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label1.Location = new Point(421, 75);
+            label1.Location = new Point(421, 87);
             label1.Name = "label1";
             label1.Size = new Size(199, 51);
             label1.TabIndex = 2;
             label1.Text = "All events";
+            // 
+            // displayallev
+            // 
+            displayallev.Font = new Font("Segoe UI", 12F);
+            displayallev.Location = new Point(53, 161);
+            displayallev.Name = "displayallev";
+            displayallev.Size = new Size(963, 342);
+            displayallev.TabIndex = 3;
+            displayallev.Text = "You have no events added!";
             // 
             // Allevent
             // 
@@ -70,6 +80,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnback;
             ClientSize = new Size(1075, 535);
+            Controls.Add(displayallev);
             Controls.Add(label1);
             Controls.Add(btnback);
             Controls.Add(lbdays);
@@ -88,5 +99,6 @@
         private Label lbdays;
         private Button btnback;
         private Label label1;
+        private Label displayallev;
     }
 }

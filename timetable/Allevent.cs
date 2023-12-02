@@ -1,10 +1,14 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Windows.Forms;
 
 namespace timetable
 {
     public partial class Allevent : Form
     {
+        // Define the connection string here
+        private readonly string connectionString = "server=localhost;user id=root;database=db_timetable;sslmode=none";
+
         public Allevent()
         {
             InitializeComponent();
@@ -30,27 +34,73 @@ namespace timetable
 
                 // Hiển thị ngày đã được định dạng trên TextBox
                 lbdays.Text = formattedDate;
-            }
-            else
-            {
-                // Xử lý trường hợp không chuyển đổi được giá trị string sang int
-                MessageBox.Show("Invalid day value. Please check the input.");
+
+                // Hiển thị tất cả sự kiện trong ngày
+                displayallevent();
             }
         }
 
-        private void btnback_Click(object sender, EventArgs e)
+        private void displayallevent()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                // Tạo đối tượng DateTime từ các biến static
+                string? dayString = UserControlDays.static_day;
+
+                if (!string.IsNullOrEmpty(dayString) && int.TryParse(dayString, out int day))
+                {
+                    int month = Form1.static_month;
+                    int year = Form1.static_year;
+
+                    DateTime eventDate = new DateTime(year, month, day);
+
+                    String sql = "SELECT * FROM tbl_timetable WHERE date = @date";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@date", eventDate);
+
+                    // Flag to check if any events exist
+                    bool eventsExist = false;
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Check if there are any events
+                        if (reader.HasRows)
+                        {
+                            eventsExist = true;
+
+                            // Clear existing text in displayallev
+                            displayallev.Text = "";
+
+                            int eventCounter = 1;
+
+                            while (reader.Read())
+                            {
+                                // Assuming you have a column named "event" in your table
+                                string? eventName = reader["event"].ToString();
+
+                                // Append each event to the displayallev TextBox with a numbered format
+                                displayallev.Text += $"{eventCounter}. {eventName}" + Environment.NewLine;
+
+                                // Increment the counter for the next event
+                                eventCounter++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    private void btnback_Click(object sender, EventArgs e)
         {
             // Tìm kiếm form cha và đóng nó
-            Form parentForm = this.FindForm();
+            Form? parentForm = this.FindForm();
 
             if (parentForm != null)
             {
                 // Đóng form hiện tại
                 parentForm.Hide();
-            }
-            else
-            {
-                // Xử lý trường hợp UserControlDays không được chứa trong một form
             }
         }
 

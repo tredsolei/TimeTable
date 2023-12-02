@@ -221,5 +221,20 @@ namespace timetable
                 }
             }
         }
+
+        private void btnexit_Click(object sender, EventArgs e)
+        {
+            // Display a confirmation dialog with Yes and No buttons
+            DialogResult result = MessageBox.Show("Are you sure to close the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Check the user's response
+            if (result == DialogResult.Yes)
+            {
+                // If the user chooses "Yes," close the current form
+                this.Close();
+            }
+            // If the user chooses "No," do nothing
+        }
+
     }
 }

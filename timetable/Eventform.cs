@@ -42,11 +42,6 @@ namespace timetable
                 // Hiển thị ngày đã được định dạng trên TextBox
                 txtDate.Text = formattedDate;
             }
-            else
-            {
-                // Xử lý trường hợp không chuyển đổi được giá trị string sang int
-                MessageBox.Show("Invalid day value. Please check the input.");
-            }
         }
 
         // Hàm chuyển đổi số ngày thành chữ (ví dụ, "1" thành "1st")
