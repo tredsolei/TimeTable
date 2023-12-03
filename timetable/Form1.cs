@@ -247,8 +247,8 @@
                 // Lấy ngày hiện tại
                 DateTime currentDate = DateTime.UtcNow;
 
-                // Truy vấn SQL để chọn các sự kiện quá hạn
-                string sql = "SELECT * FROM tbl_timetable WHERE date < @currentDate";
+                // Truy vấn SQL để chọn các sự kiện quá hạn và loại các sự kiện đã hoàn thành
+                string sql = "SELECT * FROM tbl_timetable WHERE date < @currentDate AND IsCompleted = false";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@currentDate", currentDate);
 

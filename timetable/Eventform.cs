@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;   
+using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
+using Org.BouncyCastle.Asn1.Cmp;
 
 namespace timetable
 {
@@ -41,6 +43,55 @@ namespace timetable
 
                 // Hiển thị ngày đã được định dạng trên TextBox
                 txtDate.Text = formattedDate;
+
+                // Load trạng thái của event đã hoàn thành từ database
+                LoadCompletionStatus(eventDate);
+            }
+        }
+
+        private void LoadCompletionStatus(DateTime eventDate)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                // SQL query to select completion status
+                string sql = "SELECT IsCompleted FROM tbl_timetable WHERE date = @date";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@date", eventDate);
+
+                try
+                {
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        bool isCompleted = Convert.ToBoolean(result);
+                        checkCompleted.Checked = isCompleted;
+
+                        // Update label status
+                        UpdateStatusLabel(isCompleted);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading completion status: {ex.Message}");
+                }
+            }
+        }
+
+        private void UpdateStatusLabel(bool isCompleted)
+        {
+            // Hiển thị màu của checkbox khi được tick
+            if (isCompleted)
+            {
+                lblStatus.ForeColor = Color.Green;
+                lblStatus.Text = "Completed";
+            }
+            else
+            {
+                lblStatus.ForeColor = Color.Black;
+                lblStatus.Text = "Not Completed";
             }
         }
 
@@ -88,25 +139,69 @@ namespace timetable
                 MessageBox.Show("Invalid day value. Please check the input.");
                 return; // Exit the method if the day value is invalid
             }
-
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                String sql = "INSERT INTO tbl_timetable(date, event) VALUES (@date, @event)";
+                //Truy vấn SQL để chèn event và checkCompleted vào database
+                string sql = "INSERT INTO tbl_timetable(id, date, event, IsCompleted) VALUES (@id, @date, @event, @isCompleted)" + "ON DUPLICATE KEY UPDATE event = @event, IsCompleted = @isCompleted";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", GetEventId(eventDate));
                 cmd.Parameters.AddWithValue("@date", eventDate);
                 cmd.Parameters.AddWithValue("@event", txtEvent.Text);
+                cmd.Parameters.AddWithValue("@isCompleted", checkCompleted.Checked);
 
                 try
                 {
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Saved!");
+                    
+                    // Cập nhập trạng thái
+                    UpdateStatusLabel(checkCompleted.Checked);
+
                     Hide();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Error: {ex.Message}");
                 }
+            }
+        }
+
+        //Lấy id cho sự kiện được chọn 
+        private int GetEventId(DateTime eventDate)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string sql = "SELECT id FROM tbl_timetable WHERE date = @date";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@date", eventDate);
+
+                object result = cmd.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    return Convert.ToInt32(result);
+                }
+
+                return -1;
+            }
+        }
+        private void checkCompleted_CheckedChanged(object sender, EventArgs e)
+        {
+            bool isCompleted = checkCompleted.Checked;
+
+            // Hiển thị màu cho checkbox khi được tick 
+            if (isCompleted)
+            { 
+                lblStatus.ForeColor = Color.Green;
+                lblStatus.Text = "Completed";
+            }
+            else
+            {
+                lblStatus.ForeColor = Color.Black;
+                lblStatus.Text = "Not Completed";
             }
         }
 
