@@ -46,16 +46,46 @@ namespace timetable
 
                 // Load trạng thái của event đã hoàn thành từ database
                 LoadCompletionStatus(eventDate);
+
+                // Load và hiển thị chi tiết sự kiện nếu có
+                LoadAndDisplayEventDetails(eventDate);  
             }
         }
 
+        //Load và hiển thị lại sự kiện đã save
+        private void LoadAndDisplayEventDetails(DateTime eventDate)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string sql = "SELECT * FROM tbl_timetable WHERE date = @date";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@date", eventDate);
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        // Hiển thị chi tiết sự kiện từ database trên form
+                        txtEvent.Text = reader["event"].ToString();
+                        checkCompleted.Checked = Convert.ToBoolean(reader["IsCompleted"]);
+
+                        // Update label status
+                        UpdateStatusLabel(checkCompleted.Checked);
+                    }
+                }
+            }
+        }
+
+        // Load trạng thái của event đã hoàn thành từ database
         private void LoadCompletionStatus(DateTime eventDate)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
 
-                // SQL query to select completion status
+                // Truy vấn SQL để chọn sự kiện đã hoàn thành 
                 string sql = "SELECT IsCompleted FROM tbl_timetable WHERE date = @date";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@date", eventDate);
@@ -69,7 +99,7 @@ namespace timetable
                         bool isCompleted = Convert.ToBoolean(result);
                         checkCompleted.Checked = isCompleted;
 
-                        // Update label status
+                        // Cập nhật trạng thái cho label của checkbox
                         UpdateStatusLabel(isCompleted);
                     }
                 }
@@ -80,6 +110,7 @@ namespace timetable
             }
         }
 
+        //Cập nhật trạng thái cho label của checkbox
         private void UpdateStatusLabel(bool isCompleted)
         {
             // Hiển thị màu của checkbox khi được tick
@@ -188,6 +219,8 @@ namespace timetable
                 return -1;
             }
         }
+        
+        //Hàm kiểm tra hiển thị trạng thái hoàn thành của event 
         private void checkCompleted_CheckedChanged(object sender, EventArgs e)
         {
             bool isCompleted = checkCompleted.Checked;

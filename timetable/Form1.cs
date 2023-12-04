@@ -238,6 +238,7 @@
                 // Nếu chọn No thì không làm gì
             }
 
+        // Phương thức để xem sự kiện quá hạn
         private void ViewOverdueEvents()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -284,6 +285,8 @@
             }
         }
 
+        //
+        // Xử lý sự kiện khi menu "Overdue Events" được chọn
         private void overdueEventsToolStripMenuItem_Click(object sender, EventArgs e)
             {
                  ViewOverdueEvents();
