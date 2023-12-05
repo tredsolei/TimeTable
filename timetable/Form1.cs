@@ -261,14 +261,14 @@
                     while (reader.Read())
                     {
                         // Truy xuất sự kiện 
-                        DateTime eventDate = Convert.ToDateTime(reader["date"]);
-                        string eventName = reader["event"].ToString();
+                        DateTime eventDate = Convert.ToDateTime(reader["date"]).Date;
+                        string? eventName = reader["event"].ToString();
 
                         // Kiểm tra sự kiện 
-                        if (eventDate < currentDate)
+                        if (eventDate < currentDate.Date)
                         {
                             // Nối những sự kiện quá hạn vào nơi lưu trữ 
-                            overdueEventsBuilder.AppendLine($"Date: {eventDate}, Event: {eventName}");
+                            overdueEventsBuilder.AppendLine($"Date: {eventDate.ToString("d")}, Event: {eventName}");
                         }
                     }
 

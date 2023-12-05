@@ -199,10 +199,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(13, 12);
+            button1.Location = new Point(19, 12);
             button1.Margin = new Padding(2);
             button1.Name = "button1";
-            button1.Size = new Size(61, 31);
+            button1.Size = new Size(61, 28);
             button1.TabIndex = 17;
             button1.Text = "Exit";
             button1.UseVisualStyleBackColor = true;
@@ -213,10 +213,10 @@
             menuStrip1.Dock = DockStyle.None;
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { viewToolStripMenuItem });
-            menuStrip1.Location = new Point(96, 15);
+            menuStrip1.Location = new Point(87, 12);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.RenderMode = ToolStripRenderMode.Professional;
-            menuStrip1.Size = new Size(213, 28);
+            menuStrip1.Size = new Size(63, 28);
             menuStrip1.TabIndex = 18;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -230,7 +230,7 @@
             // overdueEventsToolStripMenuItem
             // 
             overdueEventsToolStripMenuItem.Name = "overdueEventsToolStripMenuItem";
-            overdueEventsToolStripMenuItem.Size = new Size(224, 26);
+            overdueEventsToolStripMenuItem.Size = new Size(194, 26);
             overdueEventsToolStripMenuItem.Text = "Overdue events";
             overdueEventsToolStripMenuItem.Click += overdueEventsToolStripMenuItem_Click;
             // 
@@ -239,7 +239,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(224, 224, 224);
-            ClientSize = new Size(1080, 732);
+            ClientSize = new Size(1263, 732);
             Controls.Add(menuStrip1);
             Controls.Add(button1);
             Controls.Add(lbtoday);
