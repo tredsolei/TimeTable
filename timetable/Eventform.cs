@@ -170,11 +170,14 @@ namespace timetable
                 MessageBox.Show("Invalid day value. Please check the input.");
                 return; // Exit the method if the day value is invalid
             }
+
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
+
                 //Truy vấn SQL để chèn event và checkCompleted vào database
-                string sql = "INSERT INTO tbl_timetable(id, date, event, IsCompleted) VALUES (@id, @date, @event, @isCompleted)" + "ON DUPLICATE KEY UPDATE event = @event, IsCompleted = @isCompleted";
+                string sql = "INSERT INTO tbl_timetable(id, date, event, IsCompleted) VALUES (@id, @date, @event, @isCompleted)" +
+                             "ON DUPLICATE KEY UPDATE event = @event, IsCompleted = @isCompleted";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", GetEventId(eventDate));
                 cmd.Parameters.AddWithValue("@date", eventDate);
@@ -184,8 +187,9 @@ namespace timetable
                 try
                 {
                     cmd.ExecuteNonQuery();
+
                     MessageBox.Show("Saved!");
-                    
+
                     // Cập nhập trạng thái
                     UpdateStatusLabel(checkCompleted.Checked);
 
@@ -198,6 +202,7 @@ namespace timetable
             }
         }
 
+
         //Lấy id cho sự kiện được chọn 
         private int GetEventId(DateTime eventDate)
         {
@@ -205,21 +210,46 @@ namespace timetable
             {
                 conn.Open();
 
-                string sql = "SELECT id FROM tbl_timetable WHERE date = @date";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@date", eventDate);
+                // Tạo lệnh SQL để chọn bản ghi
+                string getIdSql = "SELECT id FROM tbl_timetable WHERE date = @date";
+                MySqlCommand getIdCmd = new MySqlCommand(getIdSql, conn);
+                getIdCmd.Parameters.AddWithValue("@date", eventDate);
 
-                object result = cmd.ExecuteScalar();
+                object result = getIdCmd.ExecuteScalar();
 
                 if (result != null && result != DBNull.Value)
                 {
                     return Convert.ToInt32(result);
                 }
+                else
+                {
+                    // Nếu không tìm thấy bản ghi, thì chèn một bản ghi mới và trả về ID của nó
+                    string insertSql = "INSERT INTO tbl_timetable(date, event, IsCompleted) VALUES (@date, @event, @isCompleted)";
+                    MySqlCommand insertCmd = new MySqlCommand(insertSql, conn);
+                    insertCmd.Parameters.AddWithValue("@date", eventDate);
+                    insertCmd.Parameters.AddWithValue("@event", "");
+                    insertCmd.Parameters.AddWithValue("@isCompleted", false);
+
+                    insertCmd.ExecuteNonQuery();
+
+                    // Lấy ID của bản ghi mới chèn
+                    string newIdSql = "SELECT id FROM tbl_timetable WHERE date = @date";
+                    MySqlCommand newIdCmd = new MySqlCommand(newIdSql, conn);
+                    newIdCmd.Parameters.AddWithValue("@date", eventDate);
+
+                    object newIdResult = newIdCmd.ExecuteScalar();
+
+                    if (newIdResult != null && newIdResult != DBNull.Value)
+                    {
+                        return Convert.ToInt32(newIdResult);
+                    }
+                }
 
                 return -1;
             }
         }
-        
+
+
         //Hàm kiểm tra hiển thị trạng thái hoàn thành của event 
         private void checkCompleted_CheckedChanged(object sender, EventArgs e)
         {

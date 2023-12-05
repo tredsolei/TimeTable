@@ -285,7 +285,6 @@
             }
         }
 
-        //
         // Xử lý sự kiện khi menu "Overdue Events" được chọn
         private void overdueEventsToolStripMenuItem_Click(object sender, EventArgs e)
             {
