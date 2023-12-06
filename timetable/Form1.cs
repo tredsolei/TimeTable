@@ -72,6 +72,18 @@
                 daycontainer.Controls.Add(ucdays);
             }
 
+            // UserControl cho những ngày trống sau tháng
+            int remainingDays = 7 - ((dayoftheweek - 1 + days) % 7);
+
+            // Tính toán tổng số ngày cần thêm
+            int totalRemainingDays = remainingDays + 7 * ((days - remainingDays) / 7);
+
+            for (int i = 1; i <= totalRemainingDays; i++)
+            {
+                UserControlBlank ucblank = new UserControlBlank();
+                daycontainer.Controls.Add(ucblank);
+            }
+
             //Hiển thị event khi ấn chạy chương trình
             foreach (Control control in daycontainer.Controls)
             {
@@ -157,6 +169,18 @@
                 daycontainer.Controls.Add(ucdays);
             }
 
+            // UserControl cho những ngày trống sau tháng
+            int remainingDays = 7 - ((dayoftheweek - 1 + days) % 7);
+
+            // Tính toán tổng số ngày cần thêm
+            int totalRemainingDays = remainingDays + 7 * ((days - remainingDays) / 7);
+
+            for (int i = 1; i <= totalRemainingDays; i++)
+            {
+                UserControlBlank ucblank = new UserControlBlank();
+                daycontainer.Controls.Add(ucblank);
+            }
+
             //Hiển thị event khi ấn chạy chương trình
             foreach (Control control in daycontainer.Controls)
             {
@@ -212,6 +236,18 @@
                 UserControlDays ucdays = new UserControlDays();
                 ucdays.days(i);
                 daycontainer.Controls.Add(ucdays);
+            }
+
+            // UserControl cho những ngày trống sau tháng
+            int remainingDays = 7 - ((dayoftheweek - 1 + days) % 7);
+
+            // Tính toán tổng số ngày cần thêm
+            int totalRemainingDays = remainingDays + 7 * ((days - remainingDays) / 7);
+
+            for (int i = 1; i <= totalRemainingDays; i++)
+            {
+                UserControlBlank ucblank = new UserControlBlank();
+                daycontainer.Controls.Add(ucblank);
             }
 
             //Hiển thị event khi ấn chạy chương trình

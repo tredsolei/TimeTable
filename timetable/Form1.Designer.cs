@@ -51,16 +51,16 @@
             // 
             // daycontainer
             // 
-            daycontainer.BackColor = Color.White;
+            daycontainer.BackColor = Color.FromArgb(234, 246, 251);
             daycontainer.Location = new Point(31, 270);
             daycontainer.Name = "daycontainer";
-            daycontainer.Size = new Size(1520, 800);
+            daycontainer.Size = new Size(1520, 795);
             daycontainer.TabIndex = 0;
             // 
             // btnprevious
             // 
             btnprevious.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnprevious.Location = new Point(1289, 1092);
+            btnprevious.Location = new Point(1289, 1080);
             btnprevious.Name = "btnprevious";
             btnprevious.Size = new Size(50, 50);
             btnprevious.TabIndex = 1;
@@ -72,7 +72,7 @@
             // 
             btnnext.BackColor = Color.White;
             btnnext.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnnext.Location = new Point(1502, 1092);
+            btnnext.Location = new Point(1502, 1080);
             btnnext.Name = "btnnext";
             btnnext.Size = new Size(50, 50);
             btnnext.TabIndex = 2;
@@ -173,7 +173,7 @@
             // 
             btntoday.BackColor = Color.White;
             btntoday.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btntoday.Location = new Point(1346, 1092);
+            btntoday.Location = new Point(1346, 1080);
             btntoday.Name = "btntoday";
             btntoday.Size = new Size(150, 50);
             btntoday.TabIndex = 15;
@@ -197,9 +197,9 @@
             // 
             button1.BackColor = Color.FromArgb(255, 154, 154);
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(33, 18);
+            button1.Location = new Point(31, 21);
             button1.Name = "button1";
-            button1.Size = new Size(99, 50);
+            button1.Size = new Size(91, 55);
             button1.TabIndex = 17;
             button1.Text = "Exit";
             button1.UseVisualStyleBackColor = false;
@@ -207,21 +207,26 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.BackColor = Color.FromArgb(222, 221, 221);
+            menuStrip1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            menuStrip1.AutoSize = false;
+            menuStrip1.BackColor = Color.White;
             menuStrip1.Dock = DockStyle.None;
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { viewToolStripMenuItem });
-            menuStrip1.Location = new Point(139, 19);
+            menuStrip1.Location = new Point(135, 24);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(10, 3, 0, 3);
+            menuStrip1.Padding = new Padding(1);
             menuStrip1.RenderMode = ToolStripRenderMode.Professional;
-            menuStrip1.Size = new Size(213, 28);
+            menuStrip1.Size = new Size(89, 50);
             menuStrip1.TabIndex = 18;
             menuStrip1.Text = "menuStrip1";
             // 
             // viewToolStripMenuItem
             // 
+            viewToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
             viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { overdueEventsToolStripMenuItem, upcomingEventsToolStripMenuItem });
+            viewToolStripMenuItem.Margin = new Padding(3);
+            viewToolStripMenuItem.MergeIndex = 1;
             viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             viewToolStripMenuItem.Padding = new Padding(3);
             viewToolStripMenuItem.Size = new Size(75, 42);
@@ -231,14 +236,14 @@
             // overdueEventsToolStripMenuItem
             // 
             overdueEventsToolStripMenuItem.Name = "overdueEventsToolStripMenuItem";
-            overdueEventsToolStripMenuItem.Size = new Size(224, 26);
+            overdueEventsToolStripMenuItem.Size = new Size(359, 44);
             overdueEventsToolStripMenuItem.Text = "Overdue events";
             overdueEventsToolStripMenuItem.Click += overdueEventsToolStripMenuItem_Click;
             // 
             // upcomingEventsToolStripMenuItem
             // 
             upcomingEventsToolStripMenuItem.Name = "upcomingEventsToolStripMenuItem";
-            upcomingEventsToolStripMenuItem.Size = new Size(224, 26);
+            upcomingEventsToolStripMenuItem.Size = new Size(359, 44);
             upcomingEventsToolStripMenuItem.Text = "Upcoming events";
             upcomingEventsToolStripMenuItem.Click += upcomingEventsToolStripMenuItem_Click;
             // 
@@ -246,8 +251,8 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(234, 246, 251);
-            ClientSize = new Size(2052, 1161);
+            BackColor = Color.FromArgb(207, 231, 249);
+            ClientSize = new Size(1586, 1150);
             Controls.Add(menuStrip1);
             Controls.Add(button1);
             Controls.Add(lbtoday);
