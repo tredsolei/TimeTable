@@ -45,6 +45,7 @@
             menuStrip1 = new MenuStrip();
             viewToolStripMenuItem = new ToolStripMenuItem();
             overdueEventsToolStripMenuItem = new ToolStripMenuItem();
+            upcomingEventsToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -216,13 +217,13 @@
             menuStrip1.Location = new Point(87, 12);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.RenderMode = ToolStripRenderMode.Professional;
-            menuStrip1.Size = new Size(63, 28);
+            menuStrip1.Size = new Size(213, 28);
             menuStrip1.TabIndex = 18;
             menuStrip1.Text = "menuStrip1";
             // 
             // viewToolStripMenuItem
             // 
-            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { overdueEventsToolStripMenuItem });
+            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { overdueEventsToolStripMenuItem, upcomingEventsToolStripMenuItem });
             viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             viewToolStripMenuItem.Size = new Size(55, 24);
             viewToolStripMenuItem.Text = "View";
@@ -230,9 +231,16 @@
             // overdueEventsToolStripMenuItem
             // 
             overdueEventsToolStripMenuItem.Name = "overdueEventsToolStripMenuItem";
-            overdueEventsToolStripMenuItem.Size = new Size(194, 26);
+            overdueEventsToolStripMenuItem.Size = new Size(224, 26);
             overdueEventsToolStripMenuItem.Text = "Overdue events";
             overdueEventsToolStripMenuItem.Click += overdueEventsToolStripMenuItem_Click;
+            // 
+            // upcomingEventsToolStripMenuItem
+            // 
+            upcomingEventsToolStripMenuItem.Name = "upcomingEventsToolStripMenuItem";
+            upcomingEventsToolStripMenuItem.Size = new Size(224, 26);
+            upcomingEventsToolStripMenuItem.Text = "Upcoming events";
+            upcomingEventsToolStripMenuItem.Click += upcomingEventsToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -287,5 +295,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem viewToolStripMenuItem;
         private ToolStripMenuItem overdueEventsToolStripMenuItem;
+        private ToolStripMenuItem upcomingEventsToolStripMenuItem;
     }
 }
