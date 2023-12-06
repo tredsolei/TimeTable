@@ -45,6 +45,7 @@
             menuStrip1 = new MenuStrip();
             viewToolStripMenuItem = new ToolStripMenuItem();
             overdueEventsToolStripMenuItem = new ToolStripMenuItem();
+            upcomingEventsToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -214,17 +215,13 @@
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(10, 3, 0, 3);
             menuStrip1.RenderMode = ToolStripRenderMode.Professional;
-            menuStrip1.Size = new Size(87, 48);
+            menuStrip1.Size = new Size(213, 28);
             menuStrip1.TabIndex = 18;
             menuStrip1.Text = "menuStrip1";
             // 
             // viewToolStripMenuItem
             // 
-            viewToolStripMenuItem.AutoSize = false;
-            viewToolStripMenuItem.BackColor = Color.FromArgb(222, 221, 221);
-            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { overdueEventsToolStripMenuItem });
-            viewToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            viewToolStripMenuItem.ImageScaling = ToolStripItemImageScaling.None;
+            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { overdueEventsToolStripMenuItem, upcomingEventsToolStripMenuItem });
             viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             viewToolStripMenuItem.Padding = new Padding(3);
             viewToolStripMenuItem.Size = new Size(75, 42);
@@ -234,9 +231,16 @@
             // overdueEventsToolStripMenuItem
             // 
             overdueEventsToolStripMenuItem.Name = "overdueEventsToolStripMenuItem";
-            overdueEventsToolStripMenuItem.Size = new Size(325, 44);
+            overdueEventsToolStripMenuItem.Size = new Size(224, 26);
             overdueEventsToolStripMenuItem.Text = "Overdue events";
             overdueEventsToolStripMenuItem.Click += overdueEventsToolStripMenuItem_Click;
+            // 
+            // upcomingEventsToolStripMenuItem
+            // 
+            upcomingEventsToolStripMenuItem.Name = "upcomingEventsToolStripMenuItem";
+            upcomingEventsToolStripMenuItem.Size = new Size(224, 26);
+            upcomingEventsToolStripMenuItem.Text = "Upcoming events";
+            upcomingEventsToolStripMenuItem.Click += upcomingEventsToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -290,5 +294,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem viewToolStripMenuItem;
         private ToolStripMenuItem overdueEventsToolStripMenuItem;
+        private ToolStripMenuItem upcomingEventsToolStripMenuItem;
     }
 }
