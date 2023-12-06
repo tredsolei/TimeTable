@@ -43,26 +43,29 @@
             // 
             txtDate.Enabled = false;
             txtDate.Font = new Font("Segoe UI", 12F);
-            txtDate.Location = new Point(76, 96);
+            txtDate.Location = new Point(124, 154);
+            txtDate.Margin = new Padding(5, 5, 5, 5);
             txtDate.Name = "txtDate";
-            txtDate.Size = new Size(466, 34);
+            txtDate.Size = new Size(755, 50);
             txtDate.TabIndex = 0;
             // 
             // txtEvent
             // 
             txtEvent.Font = new Font("Segoe UI", 12F);
-            txtEvent.Location = new Point(76, 185);
+            txtEvent.Location = new Point(124, 296);
+            txtEvent.Margin = new Padding(5, 5, 5, 5);
             txtEvent.Name = "txtEvent";
-            txtEvent.Size = new Size(466, 34);
+            txtEvent.Size = new Size(755, 50);
             txtEvent.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label1.Location = new Point(75, 73);
+            label1.Location = new Point(122, 117);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(42, 20);
+            label1.Size = new Size(67, 32);
             label1.TabIndex = 2;
             label1.Text = "Date";
             // 
@@ -70,9 +73,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label2.Location = new Point(75, 163);
+            label2.Location = new Point(122, 261);
+            label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(48, 20);
+            label2.Size = new Size(77, 32);
             label2.TabIndex = 3;
             label2.Text = "Event";
             // 
@@ -80,9 +84,10 @@
             // 
             btnsave.Anchor = AnchorStyles.None;
             btnsave.BackgroundImageLayout = ImageLayout.None;
-            btnsave.Location = new Point(490, 287);
+            btnsave.Location = new Point(796, 459);
+            btnsave.Margin = new Padding(5, 5, 5, 5);
             btnsave.Name = "btnsave";
-            btnsave.Size = new Size(94, 29);
+            btnsave.Size = new Size(153, 46);
             btnsave.TabIndex = 4;
             btnsave.Text = "Save";
             btnsave.UseVisualStyleBackColor = true;
@@ -90,10 +95,9 @@
             // 
             // btnback
             // 
-            btnback.Location = new Point(11, 11);
-            btnback.Margin = new Padding(2);
+            btnback.Location = new Point(18, 18);
             btnback.Name = "btnback";
-            btnback.Size = new Size(92, 29);
+            btnback.Size = new Size(150, 46);
             btnback.TabIndex = 5;
             btnback.Text = "Back";
             btnback.UseVisualStyleBackColor = true;
@@ -102,9 +106,10 @@
             // checkCompleted
             // 
             checkCompleted.AutoSize = true;
-            checkCompleted.Location = new Point(75, 257);
+            checkCompleted.Location = new Point(131, 407);
+            checkCompleted.Margin = new Padding(5, 5, 5, 5);
             checkCompleted.Name = "checkCompleted";
-            checkCompleted.Size = new Size(18, 17);
+            checkCompleted.Size = new Size(28, 27);
             checkCompleted.TabIndex = 6;
             checkCompleted.UseVisualStyleBackColor = true;
             checkCompleted.CheckedChanged += checkCompleted_CheckedChanged;
@@ -112,19 +117,20 @@
             // lblStatus
             // 
             lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(99, 254);
+            lblStatus.Location = new Point(169, 403);
+            lblStatus.Margin = new Padding(5, 0, 5, 0);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(112, 20);
+            lblStatus.Size = new Size(179, 32);
             lblStatus.TabIndex = 0;
             lblStatus.Text = "Not Completed";
             // 
             // Eventform
             // 
             AcceptButton = btnsave;
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnback;
-            ClientSize = new Size(621, 341);
+            ClientSize = new Size(1009, 546);
             Controls.Add(checkCompleted);
             Controls.Add(btnback);
             Controls.Add(btnsave);
@@ -134,6 +140,7 @@
             Controls.Add(txtDate);
             Controls.Add(lblStatus);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(5, 5, 5, 5);
             Name = "Eventform";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Eventform";
