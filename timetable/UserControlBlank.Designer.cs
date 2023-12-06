@@ -36,7 +36,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(224, 224, 224);
             Name = "UserControlBlank";
-            Size = new Size(213, 128);
+            Size = new Size(211, 126);
             ResumeLayout(false);
         }
 
