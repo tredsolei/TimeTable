@@ -208,7 +208,6 @@
             // menuStrip1
             // 
             menuStrip1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            menuStrip1.AutoSize = false;
             menuStrip1.BackColor = Color.White;
             menuStrip1.Dock = DockStyle.None;
             menuStrip1.ImageScalingSize = new Size(20, 20);
@@ -217,7 +216,7 @@
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(1);
             menuStrip1.RenderMode = ToolStripRenderMode.Professional;
-            menuStrip1.Size = new Size(89, 50);
+            menuStrip1.Size = new Size(85, 50);
             menuStrip1.TabIndex = 18;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -252,7 +251,7 @@
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(207, 231, 249);
-            ClientSize = new Size(1586, 1150);
+            ClientSize = new Size(1586, 1155);
             Controls.Add(menuStrip1);
             Controls.Add(button1);
             Controls.Add(lbtoday);
