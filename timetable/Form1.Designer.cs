@@ -234,7 +234,7 @@
             menuStrip1.Padding = new Padding(1);
             menuStrip1.RenderMode = ToolStripRenderMode.Professional;
             menuStrip1.RightToLeft = RightToLeft.Yes;
-            menuStrip1.Size = new Size(172, 32);
+            menuStrip1.Size = new Size(322, 32);
             menuStrip1.TabIndex = 18;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -250,14 +250,14 @@
             // addEventsToolStripMenuItem
             // 
             addEventsToolStripMenuItem.Name = "addEventsToolStripMenuItem";
-            addEventsToolStripMenuItem.Size = new Size(182, 26);
+            addEventsToolStripMenuItem.Size = new Size(224, 26);
             addEventsToolStripMenuItem.Text = "Add events";
             addEventsToolStripMenuItem.Click += addEventsToolStripMenuItem_Click;
             // 
             // deleteEventsToolStripMenuItem
             // 
             deleteEventsToolStripMenuItem.Name = "deleteEventsToolStripMenuItem";
-            deleteEventsToolStripMenuItem.Size = new Size(182, 26);
+            deleteEventsToolStripMenuItem.Size = new Size(224, 26);
             deleteEventsToolStripMenuItem.Text = "Delete events";
             // 
             // viewToolStripMenuItem
@@ -272,14 +272,14 @@
             // overdueEventsToolStripMenuItem
             // 
             overdueEventsToolStripMenuItem.Name = "overdueEventsToolStripMenuItem";
-            overdueEventsToolStripMenuItem.Size = new Size(207, 26);
+            overdueEventsToolStripMenuItem.Size = new Size(224, 26);
             overdueEventsToolStripMenuItem.Text = "Overdue events";
             overdueEventsToolStripMenuItem.Click += overdueEventsToolStripMenuItem_Click;
             // 
             // upcomingEventsToolStripMenuItem
             // 
             upcomingEventsToolStripMenuItem.Name = "upcomingEventsToolStripMenuItem";
-            upcomingEventsToolStripMenuItem.Size = new Size(207, 26);
+            upcomingEventsToolStripMenuItem.Size = new Size(224, 26);
             upcomingEventsToolStripMenuItem.Text = "Upcoming events";
             upcomingEventsToolStripMenuItem.Click += upcomingEventsToolStripMenuItem_Click;
             // 

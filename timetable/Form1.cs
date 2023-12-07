@@ -10,6 +10,22 @@
     public partial class Form1 : Form
     {
         String connectionString = "server=localhost;user id=root;database=db_timetable;sslmode=none;Convert Zero Datetime=true";
+
+        private static Form1 _instance;
+
+
+        // Public property to access the instance
+        public static Form1 Instance
+        {
+            get
+            {
+                if (_instance == null || _instance.IsDisposed)
+                {
+                    _instance = new Form1();
+                }
+                return _instance;
+            }
+        }
         public Form1()
         {
             InitializeComponent();
@@ -378,36 +394,25 @@
             ViewUpcomingEvents();
         }
 
+        //Xử lý sự kiện khi menu "Add Events" được chọn
         private void addEventsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Addeventform addEventform = new Addeventform();
+            Addeventform addEventform = new Addeventform(this);
             DialogResult result = addEventform.ShowDialog();
 
-            // Check the result when the form is closed
+            // Kiểm tra kết quả sau khi đóng form1
             if (result == DialogResult.OK)
             {
-                // Handle any actions after the form is closed (e.g., refresh the display)
-                RefreshDisplay(); // You should implement this method based on your needs
+                // Xử lý những hành động sau khi đóng form1
+                RefreshDisplay();
             }
         }
 
-        private void RefreshDisplay()
+        // Phương thức để làm mới hiển thị
+        public void RefreshDisplay()
         {
             daycontainer.Controls.Clear();
-
-            // Assuming you have a method to display events on your form
             displayDays();
-
-            DateTime startofthemonth = new DateTime(year, month, 1);
-            int days = DateTime.DaysInMonth(year, month);
-            for (int i = 1; i <= days; i++)
-            {
-                UserControlDays ucdays = new UserControlDays();
-                ucdays.days(i);
-                daycontainer.Controls.Add(ucdays);
-                ucdays.RequestDisplayEvent();  // Request to display events for this day
-            }
-
         }
     }
 }
