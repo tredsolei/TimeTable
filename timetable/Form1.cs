@@ -275,7 +275,7 @@
         }
 
         // Phương thức để xem sự kiện quá hạn
-        private void ViewOverdueEvents()
+        public void ViewOverdueEvents()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -322,7 +322,7 @@
         }
 
         //Phương thức để xem sự kiện sắp tới
-        private void ViewUpcomingEvents()
+        public void ViewUpcomingEvents()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -376,6 +376,38 @@
         private void upcomingEventsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ViewUpcomingEvents();
+        }
+
+        private void addEventsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Addeventform addEventform = new Addeventform();
+            DialogResult result = addEventform.ShowDialog();
+
+            // Check the result when the form is closed
+            if (result == DialogResult.OK)
+            {
+                // Handle any actions after the form is closed (e.g., refresh the display)
+                RefreshDisplay(); // You should implement this method based on your needs
+            }
+        }
+
+        private void RefreshDisplay()
+        {
+            daycontainer.Controls.Clear();
+
+            // Assuming you have a method to display events on your form
+            displayDays();
+            
+            DateTime startofthemonth = new DateTime(year, month, 1);
+            int days = DateTime.DaysInMonth(year, month);
+            for (int i = 1; i <= days; i++)
+            {
+                UserControlDays ucdays = new UserControlDays();
+                ucdays.days(i);
+                daycontainer.Controls.Add(ucdays);
+                ucdays.RequestDisplayEvent();  // Request to display events for this day
+            }
+
         }
     }
 }
