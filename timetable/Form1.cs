@@ -397,7 +397,7 @@
 
             // Assuming you have a method to display events on your form
             displayDays();
-            
+
             DateTime startofthemonth = new DateTime(year, month, 1);
             int days = DateTime.DaysInMonth(year, month);
             for (int i = 1; i <= days; i++)

@@ -32,11 +32,12 @@
             // 
             // UserControlBlank
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(224, 224, 224);
+            Margin = new Padding(2);
             Name = "UserControlBlank";
-            Size = new Size(211, 126);
+            Size = new Size(129, 80);
             ResumeLayout(false);
         }
 

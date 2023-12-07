@@ -38,9 +38,10 @@
             // 
             lbdays.AutoSize = true;
             lbdays.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lbdays.Location = new Point(153, 6);
+            lbdays.Location = new Point(94, 4);
+            lbdays.Margin = new Padding(2, 0, 2, 0);
             lbdays.Name = "lbdays";
-            lbdays.Size = new Size(56, 45);
+            lbdays.Size = new Size(36, 28);
             lbdays.TabIndex = 0;
             lbdays.Text = "00";
             lbdays.TextAlign = ContentAlignment.TopRight;
@@ -50,10 +51,9 @@
             // 
             lbevent.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lbevent.BackColor = SystemColors.HighlightText;
-            lbevent.Location = new Point(9, 51);
-            lbevent.Margin = new Padding(5, 0, 5, 0);
+            lbevent.Location = new Point(6, 32);
             lbevent.Name = "lbevent";
-            lbevent.Size = new Size(193, 77);
+            lbevent.Size = new Size(118, 48);
             lbevent.TabIndex = 1;
             lbevent.Text = " ";
             lbevent.TextAlign = ContentAlignment.MiddleCenter;
@@ -65,14 +65,15 @@
             // 
             // UserControlDays
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HighlightText;
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(lbevent);
             Controls.Add(lbdays);
+            Margin = new Padding(2);
             Name = "UserControlDays";
-            Size = new Size(211, 126);
+            Size = new Size(129, 80);
             Click += lbevent_Click;
             ResumeLayout(false);
             PerformLayout();
