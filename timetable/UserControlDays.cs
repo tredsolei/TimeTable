@@ -100,6 +100,11 @@ namespace timetable
             displayEvent();
         }
 
+        public void UpdateDisplayedEvent(string newEvent)
+        {
+            lbevent.Text = newEvent;
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             displayEvent();
