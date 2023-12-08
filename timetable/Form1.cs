@@ -1,12 +1,12 @@
-﻿    using Microsoft.VisualBasic;
-    using MySql.Data.MySqlClient;
-    using System;
-    using System.Globalization;
-    using System.Text;
-    using System.Windows.Forms;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Globalization;
+using System.Text;
+using System.Windows.Forms;
+using System.Data;
 
-    namespace timetable
-    {
+namespace timetable
+{
     public partial class Form1 : Form
     {
         String connectionString = "server=localhost;user id=root;database=db_timetable;sslmode=none;Convert Zero Datetime=true";
@@ -411,8 +411,48 @@
         // Phương thức để làm mới hiển thị
         public void RefreshDisplay()
         {
+            // Xóa tất cả các controls trong daycontainer trước khi tải lại dữ liệu
             daycontainer.Controls.Clear();
+            // Tải lại dữ liệu từ cơ sở dữ liệu vào DataGridView
+            LoadDataIntoDataGridView();
+            // Hiển thị lại các ngày trên daycontainer
             displayDays();
+            
+        }
+
+        // Xử lý sự kiện khi menu "Delete Events" được chọn
+        private void deleteEventsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Tạo một thể hiện của DeleteEventform để xóa sự kiện
+            DeleteEventform deleteEventForm = new DeleteEventform();
+            // Hiển thị DeleteEventform dưới dạng hộp thoại và chờ đến khi nó đóng
+            deleteEventForm.ShowDialog();
+        }
+
+        // Phương thức để tải dữ liệu từ cơ sở dữ liệu vào DataGridView
+        private void LoadDataIntoDataGridView()
+        {
+            // Chuỗi kết nối đến cơ sở dữ liệu MySQL
+            string connectionString = "server=localhost;user id=root;database=db_timetable;sslmode=none";
+
+            // Truy vấn SQL để lấy dữ liệu từ bảng tbl_timetable
+            string query = "SELECT * FROM tbl_timetable";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                // Tạo một đối tượng adapter để thực hiện truy vấn và điền dữ liệu vào DataTable
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+
+                // Tạo một DataTable để lưu trữ dữ liệu
+                DataTable dataTable = new DataTable();
+
+                // Chuyền dữ liệu từ cơ sở dữ liệu vào DataTable
+                adapter.Fill(dataTable);
+
+                // Liên kết DataTable với DataGridView để hiển thị dữ liệu
+                dataGridViewEvents.DataSource = dataTable;
+            }
         }
     }
+
 }

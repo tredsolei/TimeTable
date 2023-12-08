@@ -11,6 +11,8 @@
         ///  Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+
+        private System.Windows.Forms.DataGridView dataGridViewEvents;
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -28,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridViewEvents = new System.Windows.Forms.DataGridView();
             daycontainer = new FlowLayoutPanel();
             btnprevious = new Button();
             btnnext = new Button();
@@ -259,6 +262,7 @@
             deleteEventsToolStripMenuItem.Name = "deleteEventsToolStripMenuItem";
             deleteEventsToolStripMenuItem.Size = new Size(224, 26);
             deleteEventsToolStripMenuItem.Text = "Delete events";
+            deleteEventsToolStripMenuItem.Click += deleteEventsToolStripMenuItem_Click;
             // 
             // viewToolStripMenuItem
             // 
@@ -272,14 +276,14 @@
             // overdueEventsToolStripMenuItem
             // 
             overdueEventsToolStripMenuItem.Name = "overdueEventsToolStripMenuItem";
-            overdueEventsToolStripMenuItem.Size = new Size(224, 26);
+            overdueEventsToolStripMenuItem.Size = new Size(207, 26);
             overdueEventsToolStripMenuItem.Text = "Overdue events";
             overdueEventsToolStripMenuItem.Click += overdueEventsToolStripMenuItem_Click;
             // 
             // upcomingEventsToolStripMenuItem
             // 
             upcomingEventsToolStripMenuItem.Name = "upcomingEventsToolStripMenuItem";
-            upcomingEventsToolStripMenuItem.Size = new Size(224, 26);
+            upcomingEventsToolStripMenuItem.Size = new Size(207, 26);
             upcomingEventsToolStripMenuItem.Text = "Upcoming events";
             upcomingEventsToolStripMenuItem.Click += upcomingEventsToolStripMenuItem_Click;
             // 
