@@ -36,16 +36,15 @@
             id = new DataGridViewTextBoxColumn();
             dateColumn = new DataGridViewTextBoxColumn();
             eventColumn = new DataGridViewTextBoxColumn();
-            isCompletedColumn = new DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridViewEvents).BeginInit();
             SuspendLayout();
             // 
             // btndeleteback
             // 
-            btndeleteback.Location = new Point(11, 11);
+            btndeleteback.Location = new Point(10, 8);
             btndeleteback.Margin = new Padding(2);
             btndeleteback.Name = "btndeleteback";
-            btndeleteback.Size = new Size(92, 29);
+            btndeleteback.Size = new Size(75, 27);
             btndeleteback.TabIndex = 14;
             btndeleteback.Text = "Back";
             btndeleteback.UseVisualStyleBackColor = true;
@@ -55,7 +54,7 @@
             // 
             dataGridViewEvents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewEvents.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewEvents.BackgroundColor = Color.Gainsboro;
+            dataGridViewEvents.BackgroundColor = Color.FromArgb(234, 246, 251);
             dataGridViewEvents.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.HighlightText;
@@ -66,7 +65,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridViewEvents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewEvents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewEvents.Columns.AddRange(new DataGridViewColumn[] { id, dateColumn, eventColumn, isCompletedColumn });
+            dataGridViewEvents.Columns.AddRange(new DataGridViewColumn[] { id, dateColumn, eventColumn });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -75,21 +74,24 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridViewEvents.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewEvents.Location = new Point(88, 72);
+            dataGridViewEvents.Location = new Point(79, 51);
+            dataGridViewEvents.Margin = new Padding(3, 2, 3, 2);
             dataGridViewEvents.Name = "dataGridViewEvents";
             dataGridViewEvents.RowHeadersWidth = 51;
             dataGridViewEvents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewEvents.Size = new Size(447, 203);
+            dataGridViewEvents.Size = new Size(391, 152);
             dataGridViewEvents.TabIndex = 15;
             // 
             // btndelete
             // 
-            btndelete.Location = new Point(523, 300);
+            btndelete.BackColor = Color.FromArgb(255, 154, 154);
+            btndelete.Location = new Point(456, 220);
+            btndelete.Margin = new Padding(3, 2, 3, 2);
             btndelete.Name = "btndelete";
-            btndelete.Size = new Size(86, 29);
+            btndelete.Size = new Size(75, 27);
             btndelete.TabIndex = 16;
             btndelete.Text = "Delete";
-            btndelete.UseVisualStyleBackColor = true;
+            btndelete.UseVisualStyleBackColor = false;
             btndelete.Click += btndelete_Click;
             // 
             // id
@@ -114,23 +116,17 @@
             eventColumn.MinimumWidth = 6;
             eventColumn.Name = "eventColumn";
             // 
-            // isCompletedColumn
-            // 
-            isCompletedColumn.DataPropertyName = "IsCompleted";
-            isCompletedColumn.HeaderText = "Complete Status";
-            isCompletedColumn.MinimumWidth = 6;
-            isCompletedColumn.Name = "isCompletedColumn";
-            isCompletedColumn.ReadOnly = true;
-            // 
             // DeleteEventform
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(621, 341);
+            BackColor = Color.FromArgb(207, 231, 249);
+            ClientSize = new Size(543, 256);
             Controls.Add(btndelete);
             Controls.Add(dataGridViewEvents);
             Controls.Add(btndeleteback);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "DeleteEventform";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Deleteform";
@@ -147,6 +143,5 @@
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn dateColumn;
         private DataGridViewTextBoxColumn eventColumn;
-        private DataGridViewCheckBoxColumn isCompletedColumn;
     }
 }
