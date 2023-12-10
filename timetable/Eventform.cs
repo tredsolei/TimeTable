@@ -283,5 +283,14 @@ namespace timetable
                 // Xử lý trường hợp UserControlDays không được chứa trong một form
             }
         }
+
+        private void deleteEventsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            // Tạo một thể hiện của DeleteEventform để xóa sự kiện
+            DeleteEventform deleteEventForm = new DeleteEventform();
+            // Hiển thị DeleteEventform dưới dạng hộp thoại và chờ đến khi nó đóng
+            deleteEventForm.ShowDialog();
+        }
     }
 }

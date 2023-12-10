@@ -32,10 +32,10 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             btndeleteback = new Button();
             dataGridViewEvents = new DataGridView();
-            btndelete = new Button();
             id = new DataGridViewTextBoxColumn();
             dateColumn = new DataGridViewTextBoxColumn();
             eventColumn = new DataGridViewTextBoxColumn();
+            btndelete = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewEvents).BeginInit();
             SuspendLayout();
             // 
@@ -82,18 +82,6 @@
             dataGridViewEvents.Size = new Size(391, 152);
             dataGridViewEvents.TabIndex = 15;
             // 
-            // btndelete
-            // 
-            btndelete.BackColor = Color.FromArgb(255, 154, 154);
-            btndelete.Location = new Point(456, 220);
-            btndelete.Margin = new Padding(3, 2, 3, 2);
-            btndelete.Name = "btndelete";
-            btndelete.Size = new Size(75, 27);
-            btndelete.TabIndex = 16;
-            btndelete.Text = "Delete";
-            btndelete.UseVisualStyleBackColor = false;
-            btndelete.Click += btndelete_Click;
-            // 
             // id
             // 
             id.DataPropertyName = "id";
@@ -115,6 +103,18 @@
             eventColumn.HeaderText = "Event";
             eventColumn.MinimumWidth = 6;
             eventColumn.Name = "eventColumn";
+            // 
+            // btndelete
+            // 
+            btndelete.BackColor = Color.FromArgb(255, 154, 154);
+            btndelete.Location = new Point(456, 220);
+            btndelete.Margin = new Padding(3, 2, 3, 2);
+            btndelete.Name = "btndelete";
+            btndelete.Size = new Size(75, 27);
+            btndelete.TabIndex = 16;
+            btndelete.Text = "Delete";
+            btndelete.UseVisualStyleBackColor = false;
+            btndelete.Click += btndelete_Click;
             // 
             // DeleteEventform
             // 

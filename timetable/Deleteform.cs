@@ -85,7 +85,7 @@ namespace timetable
                 }
             }
         }
-        
+
         // Xử lý sự kiện khi nút xóa được nhấn
         private void btndelete_Click(object sender, EventArgs e)
         {
