@@ -36,13 +36,14 @@
             btnback = new Button();
             lblStatus = new Label();
             checkCompleted = new CheckBox();
+            button1 = new Button();
             SuspendLayout();
             // 
             // txtDate
             // 
             txtDate.Enabled = false;
             txtDate.Font = new Font("Segoe UI", 12F);
-            txtDate.Location = new Point(62, 74);
+            txtDate.Location = new Point(62, 69);
             txtDate.Margin = new Padding(3, 2, 3, 2);
             txtDate.Name = "txtDate";
             txtDate.Size = new Size(408, 29);
@@ -51,7 +52,7 @@
             // txtEvent
             // 
             txtEvent.Font = new Font("Segoe UI", 12F);
-            txtEvent.Location = new Point(62, 141);
+            txtEvent.Location = new Point(62, 136);
             txtEvent.Margin = new Padding(3, 2, 3, 2);
             txtEvent.Name = "txtEvent";
             txtEvent.Size = new Size(408, 29);
@@ -61,7 +62,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label1.Location = new Point(62, 57);
+            label1.Location = new Point(62, 52);
             label1.Name = "label1";
             label1.Size = new Size(34, 15);
             label1.TabIndex = 2;
@@ -71,7 +72,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label2.Location = new Point(62, 124);
+            label2.Location = new Point(62, 119);
             label2.Name = "label2";
             label2.Size = new Size(39, 15);
             label2.TabIndex = 3;
@@ -105,7 +106,7 @@
             // lblStatus
             // 
             lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(87, 191);
+            lblStatus.Location = new Point(87, 186);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(89, 15);
             lblStatus.TabIndex = 0;
@@ -114,13 +115,24 @@
             // checkCompleted
             // 
             checkCompleted.AutoSize = true;
-            checkCompleted.Location = new Point(67, 192);
+            checkCompleted.Location = new Point(67, 187);
             checkCompleted.Margin = new Padding(3, 2, 3, 2);
             checkCompleted.Name = "checkCompleted";
             checkCompleted.Size = new Size(15, 14);
             checkCompleted.TabIndex = 6;
             checkCompleted.UseVisualStyleBackColor = true;
             checkCompleted.CheckedChanged += checkCompleted_CheckedChanged;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(255, 154, 154);
+            button1.Location = new Point(24, 218);
+            button1.Name = "button1";
+            button1.Size = new Size(82, 27);
+            button1.TabIndex = 7;
+            button1.Text = "Delete";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += deleteEventsToolStripMenuItem_Click;
             // 
             // Eventform
             // 
@@ -130,6 +142,7 @@
             BackColor = Color.FromArgb(207, 231, 249);
             CancelButton = btnback;
             ClientSize = new Size(543, 256);
+            Controls.Add(button1);
             Controls.Add(checkCompleted);
             Controls.Add(btnback);
             Controls.Add(btnsave);
@@ -158,5 +171,6 @@
         private Button btnback;
         private Label lblStatus;
         private CheckBox checkCompleted;
+        private Button button1;
     }
 }

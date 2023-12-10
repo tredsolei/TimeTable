@@ -176,10 +176,10 @@ namespace timetable
                 conn.Open();
 
                 //Truy vấn SQL để chèn event và checkCompleted vào database
-                string sql = "INSERT INTO tbl_timetable(id, date, event, IsCompleted) VALUES (@id, @date, @event, @isCompleted)" +
+                // Trong phương thức btnsave_Click
+                string sql = "INSERT INTO tbl_timetable(date, event, IsCompleted) VALUES (@date, @event, @isCompleted)" +
                              "ON DUPLICATE KEY UPDATE event = @event, IsCompleted = @isCompleted";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@id", GetEventId(eventDate));
                 cmd.Parameters.AddWithValue("@date", eventDate);
                 cmd.Parameters.AddWithValue("@event", txtEvent.Text);
                 cmd.Parameters.AddWithValue("@isCompleted", checkCompleted.Checked);
@@ -282,6 +282,15 @@ namespace timetable
             {
                 // Xử lý trường hợp UserControlDays không được chứa trong một form
             }
+        }
+
+        private void deleteEventsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            // Tạo một thể hiện của DeleteEventform để xóa sự kiện
+            DeleteEventform deleteEventForm = new DeleteEventform();
+            // Hiển thị DeleteEventform dưới dạng hộp thoại và chờ đến khi nó đóng
+            deleteEventForm.ShowDialog();
         }
     }
 }

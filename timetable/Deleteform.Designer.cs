@@ -97,7 +97,7 @@
             // id
             // 
             id.DataPropertyName = "id";
-            id.HeaderText = "";
+            id.HeaderText = "ID";
             id.MinimumWidth = 6;
             id.Name = "id";
             id.Visible = false;

@@ -394,19 +394,6 @@ namespace timetable
             ViewUpcomingEvents();
         }
 
-        //Xử lý sự kiện khi menu "Add Events" được chọn
-        private void addEventsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Addeventform addEventform = new Addeventform(this);
-            DialogResult result = addEventform.ShowDialog();
-
-            // Kiểm tra kết quả sau khi đóng form1
-            if (result == DialogResult.OK)
-            {
-                // Xử lý những hành động sau khi đóng form1
-                RefreshDisplay();
-            }
-        }
 
         // Phương thức để làm mới hiển thị
         public void RefreshDisplay()
@@ -420,14 +407,6 @@ namespace timetable
             
         }
 
-        // Xử lý sự kiện khi menu "Delete Events" được chọn
-        private void deleteEventsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Tạo một thể hiện của DeleteEventform để xóa sự kiện
-            DeleteEventform deleteEventForm = new DeleteEventform();
-            // Hiển thị DeleteEventform dưới dạng hộp thoại và chờ đến khi nó đóng
-            deleteEventForm.ShowDialog();
-        }
 
         // Phương thức để tải dữ liệu từ cơ sở dữ liệu vào DataGridView
         private void LoadDataIntoDataGridView()
