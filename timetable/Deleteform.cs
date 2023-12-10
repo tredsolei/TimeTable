@@ -116,7 +116,7 @@ namespace timetable
             string connectionString = "server=localhost;user id=root;database=db_timetable;sslmode=none";
 
             // Truy vấn SQL để lấy dữ liệu từ bảng tbl_timetable
-            string query = "SELECT * FROM tbl_timetable";
+            string query = "SELECT id, date, event FROM tbl_timetable";
 
             try
             {
