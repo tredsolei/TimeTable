@@ -107,9 +107,6 @@ namespace timetable
             {
                 parentForm.RefreshDisplay();
             }
-
-            // Đóng DeleteEventForm
-            this.Close();
         }
 
         // Phương thức để tải dữ liệu từ cơ sở dữ liệu vào DataGridView
