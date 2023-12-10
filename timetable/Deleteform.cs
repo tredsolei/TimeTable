@@ -53,7 +53,7 @@ namespace timetable
             {
                 // Lấy hàng đã chọn
                 DataGridViewRow selectedRow = dataGridViewEvents.SelectedRows[0];
-
+                
                 // Lấy giá trị từ cột "id"
                 int eventId = Convert.ToInt32(selectedRow.Cells["id"].Value);
                 return eventId;
@@ -63,7 +63,7 @@ namespace timetable
         }
 
         // Phương thức để xóa một sự kiện khỏi cơ sở dữ liệu dựa trên ID của sự kiện
-        private void DeleteEvent(int evenId)
+        private void DeleteEvent(int eventId)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -72,7 +72,7 @@ namespace timetable
                 // Giả sử có một cột có tên 'id' để lưu trữ ngày của sự kiện
                 string deleteSql = "DELETE FROM tbl_timetable WHERE id = @eventId";
                 MySqlCommand cmd = new MySqlCommand(deleteSql, conn);
-                cmd.Parameters.AddWithValue("@eventId", evenId);
+                cmd.Parameters.AddWithValue("@eventId", eventId);
 
                 try
                 {
@@ -118,20 +118,29 @@ namespace timetable
             // Truy vấn SQL để lấy dữ liệu từ bảng tbl_timetable
             string query = "SELECT * FROM tbl_timetable";
 
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            try
             {
-                // Tạo một đối tượng adapter để thực hiện truy vấn và điền dữ liệu vào DataTable
-                MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    // Tạo một đối tượng adapter để thực hiện truy vấn và điền dữ liệu vào DataTable
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
 
-                // Tạo một DataTable để lưu trữ dữ liệu
-                DataTable dataTable = new DataTable();
+                    // Tạo một DataTable để lưu trữ dữ liệu
+                    DataTable dataTable = new DataTable();
 
-                // Chuyền dữ liệu từ cơ sở dữ liệu vào DataTable
-                adapter.Fill(dataTable);
+                    // Chuyền dữ liệu từ cơ sở dữ liệu vào DataTable
+                    adapter.Fill(dataTable);
 
-                // Liên kết DataTable với DataGridView để hiển thị dữ liệu
-                dataGridViewEvents.DataSource = dataTable;
+                    // Liên kết DataTable với DataGridView để hiển thị dữ liệu
+                    dataGridViewEvents.DataSource = dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Hiển thị thông báo lỗi
+                MessageBox.Show($"Error loading data: {ex.Message}");
             }
         }
+
     }
 }
