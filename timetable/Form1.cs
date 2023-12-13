@@ -10,22 +10,6 @@ namespace timetable
     public partial class Form1 : Form
     {
         String connectionString = "server=localhost;user id=root;database=db_timetable;sslmode=none;Convert Zero Datetime=true";
-
-        private static Form1 _instance;
-
-
-        // Public property to access the instance
-        public static Form1 Instance
-        {
-            get
-            {
-                if (_instance == null || _instance.IsDisposed)
-                {
-                    _instance = new Form1();
-                }
-                return _instance;
-            }
-        }
         public Form1()
         {
             InitializeComponent();
